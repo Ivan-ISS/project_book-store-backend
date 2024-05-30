@@ -1,3 +1,13 @@
-import { userName } from './Shared/prov';
+import { App } from './src/App';
+import  * as dotenv from 'dotenv';
 
-console.log('я работаю!!! ' + userName);
+dotenv.config();
+
+async function bootstrap() {
+    const app = new App();
+
+    await app.run();
+}
+
+bootstrap();
+console.log('я работаю!!!');
