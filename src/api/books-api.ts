@@ -1,12 +1,12 @@
 import { Router, Request, Response } from 'express';
 import { IBook } from '@Shared/types';
 
-const booksPlaceholder: IBook[] = [
+export const booksPlaceholder: IBook[] = [
     {
-        name: 'myBook',
+        bookName: 'myBook',
     },
     {
-        name: 'yourBook',
+        bookName: 'yourBook',
     }
 ];
 
@@ -19,6 +19,14 @@ export class BooksRouter {
         this._router.get('/books', (req: Request, res: Response) => {
             res.send(booksPlaceholder);
         });
+
+        /* this._router.get('/books/1', (req: Request, res: Response) => {  // По сути код из юнита 5 "ControllerRoute" делает именно такую развертку у себя внутри из принятых роутов
+            res.send('booksPlaceholder1');                                  // bind(this) нужен чтобы отвязать внутренний this передаваемого роутера и привязать его к классу в который
+        });                                                                 // он передается, т.к. роут тоже является классом и внутри у него тоже this и он обращается к своему объекту
+
+        this._router.get('/books/2', (req: Request, res: Response) => {     // Эта конструкция аналогичная этой this._router[route.method ?? 'get'](route.path, ctxHandler)
+            res.send('booksPlaceholder2');                                  // [...](...) - аналогично этому this._router.get('...')
+        }); */
     }
 
     get router() {
