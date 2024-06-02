@@ -4,12 +4,11 @@ import { BooksService } from '../model/services/books.service';
 //import { booksPlaceholder } from '../api/books-api';
 
 export class BooksController extends Controller {
-    private booksService: BooksService;
-
-    constructor() {
+    
+    constructor(private booksService: BooksService) {
         super();
 
-        this.booksService = new BooksService();
+        this.booksService = booksService;
 
         this.bindRoutes([
             {

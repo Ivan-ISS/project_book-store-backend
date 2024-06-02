@@ -8,14 +8,13 @@ export class App {
     private readonly port: number;
     private readonly host: string;
     private booksRouter: BooksRouter;
-    private booksController: BooksController;
 
-    constructor() {
+    constructor(private booksController: BooksController) {
         this.app = express();
         this.port = Number(process.env.APP_PORT) || 3000;
         this.host = process.env.APP_HOST || 'localhost';
         this.booksRouter = new BooksRouter();
-        this.booksController = new BooksController();
+        this.booksController = booksController;
     }
 
     private configureRoutes() {
