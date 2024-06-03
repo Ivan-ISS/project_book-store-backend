@@ -1,7 +1,7 @@
 // import { IBook } from '@Shared/types';
 import { BooksRepository } from '../repositories/books.repository';
 import { Book } from '@prisma/client';
-// import { booksPlaceholder } from '../../api/books-api';
+// import { booksPlaceholder } from '../../api/books-api';  // --- ранее, для проверки работоспособности отдельных этапов, здесь возвращался placeholder
 
 export class BooksService { // ЗДесь нужно будет дописать конструкцию async...await + тип возвращаемого значения :Promise<IBook[]>
 
@@ -12,7 +12,7 @@ export class BooksService { // ЗДесь нужно будет дописать
 
     public async getBooks(): Promise<Book[]> {
         return await this.booksRepository.findAll();
-        // return booksPlaceholder;
+        // return booksPlaceholder;                         // --- ранее, для проверки работоспособности отдельных этапов, здесь возвращался placeholder
     }
 
     /* public editBook(bookId: string | number) {

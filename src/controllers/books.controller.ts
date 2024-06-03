@@ -20,6 +20,7 @@ export class BooksController extends Controller {
     }
 
     private async getBooks(req: Request, res: Response/* , next: NextFunction */) {
+        res.status(200);
         res.send(await this.booksService.getBooks());
         // res.send(booksPlaceholder);
     }
