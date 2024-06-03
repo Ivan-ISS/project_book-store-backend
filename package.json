@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.ts",
     "scripts": {
-        "dev": "nodemon main.ts"
+        "dev": "nodemon main.ts",
+        "generate": "prisma generate"
     },
     "author": "Ivan-ISS",
     "license": "ISC",

@@ -6,12 +6,25 @@ export class BooksRepository {
         this.dbService = dbService;
     }
 
-    public async findAll(): Promise<Book[]> {
+    public async findAll(withAuthors = true): Promise<Book[]> {
         // Если мы не используем ORM
-        // const booksList = await this.dbService.query'SELECT * from "BOOKS"';
+        // const booksList = await this.dbService.$queryRaw`SELECT * from Book`;
 
         // Если мы используем ORM
-        const booksList: Book[] = await this.dbService.client.book.findMany();
+        let booksList: Book[];
+        if (withAuthors) {
+            booksList = await this.dbService.client.book.findMany({
+                include: {
+                    authors: {
+                        include: {
+                            author: true,
+                        }
+                    }
+                }
+            });
+            return booksList;
+        }
+        booksList = await this.dbService.client.book.findMany();
         return booksList;
     }
 
