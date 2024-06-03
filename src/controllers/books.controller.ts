@@ -4,7 +4,7 @@ import { BooksService } from '../model/services/books.service';
 //import { booksPlaceholder } from '../api/books-api';
 
 export class BooksController extends Controller {
-    
+
     constructor(private booksService: BooksService) {
         super();
 
@@ -19,8 +19,8 @@ export class BooksController extends Controller {
         ]);
     }
 
-    private getBooks(req: Request, res: Response/* , next: NextFunction */) {
-        res.send(this.booksService.getBooks());
-        //res.send(booksPlaceholder);
+    private async getBooks(req: Request, res: Response/* , next: NextFunction */) {
+        res.send(await this.booksService.getBooks());
+        // res.send(booksPlaceholder);
     }
 }

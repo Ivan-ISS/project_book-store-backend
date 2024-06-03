@@ -1,9 +1,18 @@
 // import { IBook } from '@Shared/types';
-import { booksPlaceholder } from '../../api/books-api';
+import { BooksRepository } from '../repositories/books.repository';
+import { Book } from '@prisma/client';
+// import { booksPlaceholder } from '../../api/books-api';
 
-export class BooksService { // ЗДесь нужно будет дописать конструкцию asyync...await + тип возвращаемого значения :Promise<IBook[]>
-    public getBooks() {
-        return booksPlaceholder;
+export class BooksService { // ЗДесь нужно будет дописать конструкцию async...await + тип возвращаемого значения :Promise<IBook[]>
+
+    constructor(private booksRepository: BooksRepository) {
+
+        this.booksRepository = booksRepository;
+    }
+
+    public async getBooks(): Promise<Book[]> {
+        return await this.booksRepository.findAll();
+        // return booksPlaceholder;
     }
 
     /* public editBook(bookId: string | number) {
