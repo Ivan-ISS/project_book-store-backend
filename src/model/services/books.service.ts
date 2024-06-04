@@ -1,6 +1,7 @@
 // import { IBook } from '@Shared/types';
 import { BooksRepository } from '../repositories/books.repository';
 import { Book } from '@prisma/client';
+import { IBookSearchFilter, IBook } from '@Shared/types';
 // import { booksPlaceholder } from '../../api/books-api';  // --- ранее, для проверки работоспособности отдельных этапов, здесь возвращался placeholder
 
 export class BooksService { // ЗДесь нужно будет дописать конструкцию async...await + тип возвращаемого значения :Promise<IBook[]>
@@ -10,8 +11,8 @@ export class BooksService { // ЗДесь нужно будет дописать
         this.booksRepository = booksRepository;
     }
 
-    public async getBooks(): Promise<Book[]> {
-        return await this.booksRepository.findAll();
+    public async getBooks(filter: IBookSearchFilter): Promise<Book[]> {
+        return await this.booksRepository.findAll(filter);
         // return booksPlaceholder;                         // --- ранее, для проверки работоспособности отдельных этапов, здесь возвращался placeholder
     }
 
@@ -21,12 +22,11 @@ export class BooksService { // ЗДесь нужно будет дописать
 
     public removeBook(bookId: string | number) {
         return { success: true };
-    }
-
-    public createBook(bookData: IBook) {
-        const book = new BookModel();
-        book.setName(bookData.name);
-
-        return { success: true, book: bookData };
     } */
+
+    public async createBook(bookData: IBook) {
+        const createdBook = await this.booksRepository.createBook(bookData);
+        return createdBook;
+        //  return { success: true, book: bookData };
+    }
 }

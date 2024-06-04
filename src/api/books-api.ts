@@ -2,12 +2,12 @@ import { Router, Request, Response } from 'express';
 import { IBook } from '@Shared/types';
 
 export const booksPlaceholder: IBook[] = [
-    {
+    /* {
         bookName: 'myBook',
     },
     {
         bookName: 'yourBook',
-    }
+    } */
 ];
 
 export class BooksRouter {

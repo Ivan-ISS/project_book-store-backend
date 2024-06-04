@@ -1,49 +1,63 @@
-export interface IBook {
-    id?: number;
-    bookName: string;
-    authors?: IAuthor[];
-    language?: string;
+export interface IBook {    //
+    id: number;
+    name: string;
+    price: number;
+    language: string;
+    description: string;
+    yearPublished: number;
     categories?: ICategory[];
-    price?: number;
+    authors?: IAuthor[];
+    rating?: IRating[];
+    users?: IUser[];
     currency?: ICurrency;
-    yearOfPublishing?: number;
-    rating?: number; // будет рассчитываться средний на основе связи таблиц с ретингом - по id
+    currencyId: number;
 }
 
 export interface IUser {        //
     id: number;
     name: string;
-    accountCreationDate: number;
+    dob: string;
     description: string;
     email: string;
     password: string;
-    booksList?: IBook[];
+    books?: IBook[];
+    rating?: IRating[];
 }
 
 export interface ICategory {    //
     id: number;
-    categoryName: string;
-    // bookId: number[];
+    name: string;
+    books: IBook[];
 }
 
 export interface ICurrency {    //
     id: number;
-    currencyName: string;
-    currencyAcronym: string;
+    name: string;
+    acronym: string;
+    books?: IBook[];
 }
 
 export interface IAuthor {      //
     id: number;
-    firstName: string;
-    lastName: string;
-    dateOfBirth: number;
-    dateOfDeath: number;
-    // bookId: number[];
+    first: string;
+    last: string;
+    yearsActive: string;
+    books: IBook[];
 }
 
-export interface IRating {      //
+export interface IRating {
     id: number;
+    value: number;
     userId: number;
     bookId: number;
-    value: number;
+    book: IBook;
+    user: IUser;
+}
+
+// ======================
+
+export interface IBookSearchFilter {
+    perPage?: number;
+    page?: number;
+    category?: string[];
 }

@@ -22,7 +22,7 @@ export class App {
     private configureRoutes() {
         // this.app.use('/api/v1', this.booksRouter.router);        // --- это первый пример для запуска роутера из папки api
         this.app.use('/api/v1', this.booksController.router);
-        this.app.use('/auth', this.authController.router);
+        this.app.use('/api/v1/user', this.authController.router);
     }
 
     public async run() {
