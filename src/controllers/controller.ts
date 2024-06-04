@@ -1,9 +1,14 @@
 import { Router, Request, Response, NextFunction } from 'express';
 
+export interface IMiddleware {
+    handle: (req: Request, res: Response, next: NextFunction) => void
+}
+
 interface ControllerRouter {
     method: 'get' | 'post' | 'put' | 'delete' | 'patch';
     routerPath: string;
     fn: (req: Request, res: Response, next: NextFunction) => void;
+    middleware: IMiddleware[];
 }
 
 export class Controller {
@@ -17,7 +22,9 @@ export class Controller {
         routes.forEach((route) => {
             const ctxHandler = route.fn.bind(this);
 
-            this._router[route.method ?? 'get'](route.routerPath, ctxHandler);
+            const routeHandlers = route.middleware && [...route.middleware.map((m) => m.handle), ctxHandler];
+
+            this._router[route.method ?? 'get'](route.routerPath, routeHandlers);
         });
     }
 

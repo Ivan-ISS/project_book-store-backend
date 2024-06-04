@@ -8,7 +8,7 @@ export class BooksRepository {
 
     public async findAll(withAuthors = true): Promise<Book[]> {
         // Если мы не используем ORM
-        // const booksList = await this.dbService.$queryRaw`SELECT * from Book`;
+        // const booksList = await this.dbService.client.$queryRaw`SELECT * from Book`;
 
         // Если мы используем ORM
         let booksList: Book[];

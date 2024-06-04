@@ -1,6 +1,7 @@
 import { Request, Response/* , NextFunction */ } from 'express';
 import { Controller } from './controller';
 import { BooksService } from '../model/services/books.service';
+import { LoggerMiddleware } from '../middleware/middleware';
 //import { booksPlaceholder } from '../api/books-api';
 
 export class BooksController extends Controller {
@@ -15,6 +16,7 @@ export class BooksController extends Controller {
                 routerPath: '/books',
                 method: 'get',
                 fn: this.getBooks,
+                middleware: [new LoggerMiddleware]
             }
         ]);
     }
