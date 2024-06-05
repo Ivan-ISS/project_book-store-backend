@@ -10,7 +10,7 @@ export interface IBook {    //
     rating?: IRating[];
     users?: IUser[];
     currency?: ICurrency;
-    currencyId: number;
+    currencyId?: number;
 }
 
 export interface IUser {        //
@@ -39,8 +39,8 @@ export interface ICurrency {    //
 
 export interface IAuthor {      //
     id: number;
-    first: string;
-    last: string;
+    firstName: string;
+    lastName: string;
     yearsActive: string;
     books: IBook[];
 }
@@ -59,5 +59,5 @@ export interface IRating {
 export interface IBookSearchFilter {
     perPage?: number;
     page?: number;
-    category?: string[];
+    category?: string;
 }
