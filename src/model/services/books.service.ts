@@ -16,17 +16,18 @@ export class BooksService { // ЗДесь нужно будет дописать
         // return booksPlaceholder;                         // --- ранее, для проверки работоспособности отдельных этапов, здесь возвращался placeholder
     }
 
-    /* public editBook(bookId: string | number) {
-        return { success: true, book: {} };
+    public async editBook(bookId: string | number, bookData: IBook) {
+        const { status, message, data } = await this.booksRepository.editBook(bookId, bookData);
+        return { status, message, data };
     }
 
-    public removeBook(bookId: string | number) {
+    /* public removeBook(bookId: string | number) {
         return { success: true };
     } */
 
     public async createBook(bookData: IBook) {
-        const createdBook = await this.booksRepository.createBook(bookData);
-        return createdBook;
+        const { status, message, data } = await this.booksRepository.createBook(bookData);
+        return { status, message, data };
         //  return { success: true, book: bookData };
     }
 }
