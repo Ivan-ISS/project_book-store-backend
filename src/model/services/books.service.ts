@@ -21,9 +21,10 @@ export class BooksService { // ЗДесь нужно будет дописать
         return { status, message, data };
     }
 
-    /* public removeBook(bookId: string | number) {
-        return { success: true };
-    } */
+    public async removeBook(bookId: string | number) {
+        const { status, message } = await this.booksRepository.removeBook(bookId);
+        return { status, message };
+    }
 
     public async createBook(bookData: IBook) {
         const { status, message, data } = await this.booksRepository.createBook(bookData);

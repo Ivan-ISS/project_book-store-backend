@@ -33,6 +33,12 @@ export class BooksController extends Controller {
                 fn: this.editBook,
                 middleware: [new LoggerMiddleware]
             },
+            {
+                routerPath: '/books/:id',
+                method: 'delete',
+                fn: this.removeBook,
+                middleware: [new LoggerMiddleware]
+            },
         ]);
     }
 
@@ -74,6 +80,19 @@ export class BooksController extends Controller {
             res.status(status);
             data ? res.send(data)
             : message && res.send(message);
+            return;
+        } catch (error) {
+            this.throwServerError(res, error as Error);
+        }
+    }
+
+    private async removeBook(req: Request<ParamsDictionary, object, IBook>, res: Response/* , next: NextFunction */) {
+
+        try {
+            const { status, message } = await this.booksService.removeBook(req.params.id);
+
+            res.status(status);
+            res.send(message);
             return;
         } catch (error) {
             this.throwServerError(res, error as Error);

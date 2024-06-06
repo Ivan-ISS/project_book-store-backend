@@ -222,6 +222,31 @@ export class BooksRepository {
             })),
         });
 
-        return { status: 200, message: 'successful', data: updatedBook };
+        return { status: 200, message: null, data: updatedBook };
+    }
+
+    public async removeBook(bookId: string | number) {
+
+        const existingBook = await this.dbService.client.book.findUnique({
+            where: { id: Number(bookId) },
+        });
+
+        if (!existingBook) {
+            return { status: 404, message: `Book with id: ${bookId} is not found`, data: null };
+        }
+
+        await this.dbService.client.book_Authors.deleteMany({
+            where: { bookId: Number(bookId) },
+        });
+
+        await this.dbService.client.book_Categories.deleteMany({
+            where: { bookId: Number(bookId) },
+        });
+
+        await this.dbService.client.book.delete({
+            where: { id: Number(bookId) },
+        });
+
+        return { status: 200, message: `Book with id: ${bookId} has been deleted` };
     }
 }
