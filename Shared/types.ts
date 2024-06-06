@@ -61,3 +61,8 @@ export interface IBookSearchFilter {
     page?: number;
     category?: string;
 }
+
+export interface ICategorySearchFilter {
+    perPage?: number;
+    page?: number;
+}

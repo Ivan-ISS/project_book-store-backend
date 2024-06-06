@@ -1,4 +1,3 @@
-// import { IBook } from '@Shared/types';
 import { BooksRepository } from '../repositories/books.repository';
 import { Book } from '@prisma/client';
 import { IBookSearchFilter, IBook } from '@Shared/types';
