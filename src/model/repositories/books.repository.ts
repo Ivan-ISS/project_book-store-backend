@@ -35,7 +35,7 @@ export class BooksRepository {
                 return {status: 400, message: validationResult, data: null};
             }
 
-            const existingCategories = await this.dbService.client.category.findMany({   // Проверка наличия категорий в БД
+            const existingCategories = await this.dbService.client.category.findMany({  // Проверка наличия категорий в БД
                 where: {
                     name: {
                         in: bookData.categories?.map(category => category.name),
@@ -43,7 +43,7 @@ export class BooksRepository {
                 },
             });
 
-            const categories = bookData.categories?.filter(category =>                   // Фильтр по не найденным в БД категориям
+            const categories = bookData.categories?.filter(category =>                  // Фильтр по не найденным в БД категориям
                 !existingCategories.some(existingCategory => 
                     existingCategory.name === category.name
                 )

@@ -45,7 +45,7 @@ export const validateBook = (book: IBook): string | null => {
     return null;
 };
 
-const validateCategories = (categories: ICategory[]): string | null => {
+export const validateCategories = (categories: ICategory[]): string | null => {
     let wrongFieldName: string | null = null;
     const requiredFields = new Set<keyof ICategory>(['name']);
     categories.forEach((category) => {
@@ -60,7 +60,7 @@ const validateCategories = (categories: ICategory[]): string | null => {
     return wrongFieldName;
 };
 
-const validateCurrency = (currency: ICurrency): string | null => {
+export const validateCurrency = (currency: ICurrency): string | null => {
     let wrongFieldName: string | null = null;
     const requiredFields = new Set<keyof ICurrency>(['name', 'acronym']);
     requiredFields.forEach((field) => {
@@ -73,7 +73,7 @@ const validateCurrency = (currency: ICurrency): string | null => {
     return wrongFieldName;
 };
 
-const validateAuthors = (authors: IAuthor[]): string | null => {
+export const validateAuthors = (authors: IAuthor[]): string | null => {
     let wrongFieldName: string | null = null;
     const requiredFields = new Set<keyof IAuthor>(['firstName', 'lastName', 'yearsActive']);
     authors.forEach((author) => {
