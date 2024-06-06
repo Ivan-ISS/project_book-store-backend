@@ -18,4 +18,14 @@ export class CategoriesService {
         const { status, message, data } = await this.categoriesRepository.createCategory(categoryData);
         return { status, message, data };
     }
+
+    public async editCategory(categoryId: string | number, categoryData: ICategory) {
+        const { status, message, data } = await this.categoriesRepository.editCategory(categoryId, categoryData);
+        return { status, message, data };
+    }
+
+    public async removeCategory(categoryId: string | number) {
+        const { status, message } = await this.categoriesRepository.removeCategory(categoryId);
+        return { status, message };
+    }
 }

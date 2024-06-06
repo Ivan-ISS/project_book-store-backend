@@ -1,5 +1,4 @@
 import { BooksRepository } from '../repositories/books.repository';
-import { Book } from '@prisma/client';
 import { IBookSearchFilter, IBook } from '@Shared/types';
 // import { booksPlaceholder } from '../../api/books-api';  // --- ранее, для проверки работоспособности отдельных этапов, здесь возвращался placeholder
 
@@ -10,8 +9,9 @@ export class BooksService { // ЗДесь нужно будет дописать
         this.booksRepository = booksRepository;
     }
 
-    public async getBooks(filter: IBookSearchFilter): Promise<Book[]> {
-        return await this.booksRepository.findAll(filter);
+    public async getBooks(filter: IBookSearchFilter) {
+        const { status, message, data } = await this.booksRepository.getBooks(filter);
+        return { status, message, data };
         // return booksPlaceholder;                         // --- ранее, для проверки работоспособности отдельных этапов, здесь возвращался placeholder
     }
 

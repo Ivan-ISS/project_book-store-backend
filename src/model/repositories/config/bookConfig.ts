@@ -43,32 +43,16 @@ export const bookFindConfig = ({ perPage, page, category }: IBookSearchFilter, w
 
 // Config create books
 export const bookCreateConfig = (bookData: IBook, existingCurrency: Currency | null) => {
-    if (existingCurrency) {
-        return ({
-            name: bookData.name,
-            price: bookData.price,
-            language: bookData.language,
-            description: bookData.description,
-            yearPublished: bookData.yearPublished,
-            currency: {
-                connect: {
-                    id: existingCurrency.id,
-                }
-            },
-        });
-    } else {
-        return ({
-            name: bookData.name,
-            price: bookData.price,
-            language: bookData.language,
-            description: bookData.description,
-            yearPublished: bookData.yearPublished,
-            currency: {
-                create: {
-                    name: bookData.currency?.name,
-                    acronym: bookData.currency?.acronym,
-                }
-            },
-        });
-    }
+    return ({
+        name: bookData.name,
+        price: bookData.price,
+        language: bookData.language,
+        description: bookData.description,
+        yearPublished: bookData.yearPublished,
+        currency: {
+            connect: {
+                id: existingCurrency?.id,
+            }
+        },
+    });
 };

@@ -16,25 +16,25 @@ export class BooksController extends Controller {
 
         this.bindRoutes([
             {
-                routerPath: '/books',
+                routerPath: '/',
                 method: 'get',
                 fn: this.getBooks,
                 middleware: [new LoggerMiddleware]
             },
             {
-                routerPath: '/books',
+                routerPath: '/',
                 method: 'post',
                 fn: this.createBook,
                 middleware: [new LoggerMiddleware]
             },
             {
-                routerPath: '/books/:id',
+                routerPath: '/:id',
                 method: 'put',
                 fn: this.editBook,
                 middleware: [new LoggerMiddleware]
             },
             {
-                routerPath: '/books/:id',
+                routerPath: '/:id',
                 method: 'delete',
                 fn: this.removeBook,
                 middleware: [new LoggerMiddleware]
@@ -50,8 +50,13 @@ export class BooksController extends Controller {
 
     private async getBooks(req: Request<object, object, object, IBookSearchFilter>, res: Response/* , next: NextFunction */) {
         try {
-            res.status(200);
-            res.send(await this.booksService.getBooks(req.query));
+
+            const { status, message, data } = await this.booksService.getBooks(req.query);
+
+            res.status(status);
+            data ? res.send(data)
+            : message && res.send(message);
+            return;
             // res.send(booksPlaceholder);
         } catch (error) {
             this.throwServerError(res, error as Error);
@@ -86,7 +91,7 @@ export class BooksController extends Controller {
         }
     }
 
-    private async removeBook(req: Request<ParamsDictionary, object, IBook>, res: Response/* , next: NextFunction */) {
+    private async removeBook(req: Request<ParamsDictionary>, res: Response/* , next: NextFunction */) {
 
         try {
             const { status, message } = await this.booksService.removeBook(req.params.id);

@@ -3,7 +3,7 @@ import { Controller } from './controller';
 import { CategoriesService } from '../model/services/categories.service';
 import { LoggerMiddleware } from '../middleware/middleware';
 import { ICategorySearchFilter, ICategory } from '@Shared/types';
-// import { ParamsDictionary } from 'express-serve-static-core';
+import { ParamsDictionary } from 'express-serve-static-core';
 
 export class CategoriesController extends Controller {
 
@@ -14,15 +14,27 @@ export class CategoriesController extends Controller {
 
         this.bindRoutes([
             {
-                routerPath: '/categories',
+                routerPath: '/',
                 method: 'get',
                 fn: this.getCategories,
                 middleware: [new LoggerMiddleware]
             },
             {
-                routerPath: '/categories',
+                routerPath: '/',
                 method: 'post',
                 fn: this.createCategory,
+                middleware: [new LoggerMiddleware]
+            },
+            {
+                routerPath: '/:id',
+                method: 'put',
+                fn: this.editCategory,
+                middleware: [new LoggerMiddleware]
+            },
+            {
+                routerPath: '/:id',
+                method: 'delete',
+                fn: this.removeCategory,
                 middleware: [new LoggerMiddleware]
             },
         ]);
@@ -55,6 +67,33 @@ export class CategoriesController extends Controller {
             res.status(status);
             data ? res.send(data)
             : message && res.send(message);
+            return;
+        } catch (error) {
+            this.throwServerError(res, error as Error);
+        }
+    }
+
+    private async editCategory(req: Request<ParamsDictionary, object, ICategory>, res: Response) {
+        
+        try {
+            const { status, message, data } = await this.categoriesService.editCategory(req.params.id, req.body);
+
+            res.status(status);
+            data ? res.send(data)
+            : message && res.send(message);
+            return;
+        } catch (error) {
+            this.throwServerError(res, error as Error);
+        }
+    }
+
+    private async removeCategory(req: Request<ParamsDictionary>, res: Response) {
+
+        try {
+            const { status, message } = await this.categoriesService.removeCategory(req.params.id);
+
+            res.status(status);
+            res.send(message);
             return;
         } catch (error) {
             this.throwServerError(res, error as Error);
