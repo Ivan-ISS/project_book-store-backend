@@ -50,6 +50,16 @@ export class BooksController extends Controller {
         try {
             const createdBook = await this.booksService.createBook(req.body);
 
+            if (createdBook?.status) {
+                res.status(createdBook.status);
+                if (createdBook.data) {
+                    res.send(createdBook.data);
+                } else {
+                    res.send(createdBook.message);
+                }
+                return;
+            }
+
             res.status(201);
             res.send(createdBook);
         } catch (error) {
