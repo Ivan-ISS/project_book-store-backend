@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-/* import { verify } from 'jsonwebtoken'; */
+import { verify } from 'jsonwebtoken';
 import { IMiddleware } from '../controllers/controller';
+// import { JwtPayload } from '@Shared/types';
 
 export abstract class Middleware implements IMiddleware {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -31,16 +32,23 @@ export class ValidateMiddleware extends Middleware {
     }
 }
 
-/* export class AuthMiddleware extends Middleware {
+export class AuthMiddleware extends Middleware {
     public handle(req: Request, res: Response, next: NextFunction) {
-        const token = req.headers.Authorization.split(' ')[1];
-        verify(token, process.env.JWTSECRET, (err, payload) => {
-            if (err) {
-                res.status(401).send({ error: true });
-            } else {
-                req.jwtPayload = payload;
-                next();
-            }
-        });
+        let token;
+        if (typeof req.headers.Authorization === 'string') {
+            token = req.headers.Authorization.split(' ')[1];
+        }
+        if (token && process.env.JWTSECRET) {
+            verify(token, process.env.JWTSECRET, (err: unknown, payload: unknown) => {
+                if (err) {
+                    res.status(401).send({ error: true });
+                } else {
+                    req.body.jwtPayload = payload;
+                    next();
+                }
+            });
+        } else {
+            res.status(401).send({ error: true });
+        }
     }
-} */
+}

@@ -5,7 +5,11 @@ export class AuthRepository {
         this.dbService = dbService;
     }
 
-    public async findAll(): Promise<string> {
-        return 'token';
+    public async registerUser() {
+        return { status: 200, message: null};
+    }
+
+    public async loginUser() {
+        return { status: 200, message: null};
     }
 }

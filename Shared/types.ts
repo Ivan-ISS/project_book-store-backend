@@ -66,3 +66,14 @@ export interface ICategorySearchFilter {
     perPage?: number;
     page?: number;
 }
+
+export interface IAuth {
+    username: string;
+    password: string;
+}
+
+export interface JwtPayload {
+        email: string;
+        password: string;
+        iat: string
+}
