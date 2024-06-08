@@ -27,11 +27,35 @@ export class AuthController extends Controller {
         ]);
     }
 
+    private throwServerError(res: Response, e: Error) {
+        console.debug(e.message);
+        res.status(500);
+        res.send('Something went wrong');
+    }
+
     private async register(req: Request<object, object, IAuth>, res: Response) {
-        res.send(await this.authService.registerUser(req.body));
+        try {
+            const { status, message, data } = await this.authService.registerUser(req.body);
+
+            res.status(status);
+            data ? res.send(data)
+            : message && res.send(message);
+            return;
+        } catch (error) {
+            this.throwServerError(res, error as Error);
+        }
     }
 
     private async login(req: Request<object, object, IAuth>, res: Response) {
-        res.send(await this.authService.loginUser(req.body));
+        try {
+            const { status, message, data } = await this.authService.loginUser(req.body);
+
+            res.status(status);
+            data ? res.send(data)
+            : message && res.send(message);
+            return;
+        } catch (error) {
+            this.throwServerError(res, error as Error);
+        }
     }
 }

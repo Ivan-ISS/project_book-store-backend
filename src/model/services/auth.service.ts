@@ -40,8 +40,6 @@ export class AuthService {
         console.log('authData: ', authDate);
         console.log('token out: ', dataToken);
 
-        console.log('authData: ', authDate);
-
         const { status, message } = await this.authRepository.loginUser();
 
         return { status, message, data: dataToken };

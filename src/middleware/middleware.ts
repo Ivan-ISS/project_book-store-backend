@@ -24,8 +24,18 @@ export class ValidateMiddleware extends Middleware {
     public handle(req: Request, res: Response, next: NextFunction) {
         const { username, password } = req.body;
 
+        const isEmailValid = username.includes('@');
+        const isPasswordValid = password.length >= 6;
+
         if (!username || !password) {
             res.status(422).send({ error: 'No username or password' });
+            return;
+        } else if (!isEmailValid) {
+            res.status(422).send({ error: 'Email is not valid' });
+            return;
+        } else if (!isPasswordValid) {
+            res.status(422).send({ error: 'Your password must be at least 6 characters long' });
+            return;
         }
 
         next();
