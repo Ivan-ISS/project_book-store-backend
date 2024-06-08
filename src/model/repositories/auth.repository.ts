@@ -6,10 +6,10 @@ export class AuthRepository {
     }
 
     public async registerUser() {
-        return { status: 200, message: null};
+        return { status: 200, message: null };
     }
 
     public async loginUser() {
-        return { status: 200, message: null};
+        return { status: 200, message: null, data: { password: 'password', username: 'username' } };
     }
 }
