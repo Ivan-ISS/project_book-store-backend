@@ -80,8 +80,8 @@ model User {
     name                String              @db.VarChar(255)        @default("")                @map("name")
     dob                 DateTime                                    @default(now())             @map("dob")
     description         String              @db.VarChar(255)        @default("")                @map("description")
-    email               String              @db.VarChar(20)         @default("")                @map("login")
-    password            String              @db.VarChar(255)        @default("")                @map("password")
+    email               String              @db.VarChar(255)        @default("")                @map("email")
+    password            String              @db.VarChar(10000)      @default("")                @map("password")
     books               User_Books[]
     rating              Rating[]
 }

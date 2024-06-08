@@ -1,6 +1,6 @@
 import { App } from './src/App';
 import  * as dotenv from 'dotenv';
-import * as crypto from 'crypto';
+// import * as crypto from 'crypto';
 import { BooksController } from './src/controllers/books.controller';
 import { BooksService } from './src/model/services/books.service';   // --- для внедрения зависимостей через конструктор класса
 import { BooksRepository } from './src/model/repositories/books.repository';
@@ -14,7 +14,8 @@ import { DBService } from './src/db/dbService';
 
 dotenv.config();
 
-const salt = crypto.randomBytes(16).toString('base64'); // создаем соль
+// const salt = crypto.randomBytes(16).toString('base64'); // создаем соль
+const salt = 'SKqFOU1OgHCWBNEieU6TxQ==';
 process.env.SALT = salt;                                // записали ее в переменные окружения
 
 async function bootstrap() {

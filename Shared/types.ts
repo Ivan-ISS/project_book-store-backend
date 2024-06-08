@@ -15,9 +15,9 @@ export interface IBook {    //
 
 export interface IUser {        //
     id: number;
-    name: string;
-    dob: string;
-    description: string;
+    name?: string;
+    dob?: number;
+    description?: string;
     email: string;
     password: string;
     books?: IBook[];

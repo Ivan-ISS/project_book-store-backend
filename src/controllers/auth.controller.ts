@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { Controller } from './controller';
 import { AuthService } from '../model/services/auth.service';
 import { ValidateMiddleware } from '../middleware/middleware';
-import { IAuth } from '@Shared/types';
+import { IUser } from '@Shared/types';
 
 export class AuthController extends Controller {
 
@@ -33,7 +33,7 @@ export class AuthController extends Controller {
         res.send('Something went wrong');
     }
 
-    private async register(req: Request<object, object, IAuth>, res: Response) {
+    private async register(req: Request<object, object, IUser>, res: Response) {
         try {
             const { status, message, data } = await this.authService.registerUser(req.body);
 
@@ -46,8 +46,9 @@ export class AuthController extends Controller {
         }
     }
 
-    private async login(req: Request<object, object, IAuth>, res: Response) {
+    private async login(req: Request<object, object, IUser>, res: Response) {
         try {
+            console.log('email: ', req.body);
             const { status, message, data } = await this.authService.loginUser(req.body);
 
             res.status(status);

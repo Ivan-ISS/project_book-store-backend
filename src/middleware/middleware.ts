@@ -22,12 +22,12 @@ export class LoggerMiddleware extends Middleware {
 
 export class ValidateMiddleware extends Middleware {
     public handle(req: Request, res: Response, next: NextFunction) {
-        const { username, password } = req.body;
+        const { email, password } = req.body;
 
-        const isEmailValid = username.includes('@');
+        const isEmailValid = email.includes('@');
         const isPasswordValid = password.length >= 6;
 
-        if (!username || !password) {
+        if (!email || !password) {
             res.status(422).send({ error: 'No username or password' });
             return;
         } else if (!isEmailValid) {
@@ -49,13 +49,20 @@ export class AuthMiddleware extends Middleware {
             token = req.headers.Authorization.split(' ')[1];
         }
         if (token && process.env.JWTSECRET) {
-            verify(token, process.env.JWTSECRET, (err: unknown, payload: unknown) => {
+            /* const decoded = */ verify(token, process.env.JWTSECRET, (err: unknown, payload: unknown) => {
+
+                /* const expirationTime = 15 * 60;
+                const currentTime = Math.floor(Date.now() / 1000); */
+
                 if (err) {
                     res.status(401).send({ error: true });
+                /* } else if ((currentTime - decoded.iat) > expirationTime) {
+                    res.status(401).send({ error: 'Authorization time has expired' }); */
                 } else {
                     req.body.jwtPayload = payload;
                     next();
                 }
+
             });
         } else {
             res.status(401).send({ error: true });
