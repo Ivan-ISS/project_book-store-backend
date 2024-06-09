@@ -26,7 +26,7 @@ export class AuthController extends Controller {
                 middleware: [new ValidateMiddleware()],
             },
             {
-                routerPath: '/addToCart',
+                routerPath: '/add-to-cart',
                 method: 'post',
                 fn: this.addToCart,
                 middleware: [new LoggerMiddleware()],
@@ -35,6 +35,18 @@ export class AuthController extends Controller {
                 routerPath: '/books/:id',
                 method: 'get',
                 fn: this.getBooks,
+                middleware: [new LoggerMiddleware()],
+            },
+            {
+                routerPath: '/:id',
+                method: 'put',
+                fn: this.editUser,
+                middleware: [new LoggerMiddleware()],
+            },
+            {
+                routerPath: '/:id',
+                method: 'delete',
+                fn: this.removeUser,
                 middleware: [new LoggerMiddleware()],
             }
         ]);
@@ -94,6 +106,32 @@ export class AuthController extends Controller {
             res.status(status);
             data ? res.send(data)
             : message && res.send(message);
+            return;
+        } catch (error) {
+            this.throwServerError(res, error as Error);
+        }
+    }
+
+    private async editUser(req: Request<ParamsDictionary, object, IUser>, res: Response) {
+        try {
+
+            const { status, message } = await this.authService.editUser(req.params.id, req.body);
+
+            res.status(status);
+            res.send(message);
+            return;
+        } catch (error) {
+            this.throwServerError(res, error as Error);
+        }
+    }
+
+    private async removeUser(req: Request<ParamsDictionary>, res: Response) {
+
+        try {
+            const { status, message } = await this.authService.removeUser(req.params.id);
+
+            res.status(status);
+            res.send(message);
             return;
         } catch (error) {
             this.throwServerError(res, error as Error);

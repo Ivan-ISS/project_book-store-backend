@@ -62,8 +62,18 @@ export class AuthService {
         return { status, message };
     }
 
-    public async getBooks(userId: string) {
+    public async getBooks(userId: string | number) {
         const { status, message, data } = await this.authRepository.getBooks(userId);
         return { status, message, data };
+    }
+
+    public async editUser(userId: string | number, userData: IUser) {
+        const { status, message } = await this.authRepository.editUser(userId, userData);
+        return { status, message };
+    }
+
+    public async removeUser(userId: string | number) {
+        const { status, message } = await this.authRepository.removeUser(userId);
+        return { status, message };
     }
 }
