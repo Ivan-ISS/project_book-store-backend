@@ -1,5 +1,4 @@
 import { DBService } from '../../db/dbService';
-// import { Category } from '@prisma/client';
 import { ICategorySearchFilter, ICategory } from '@Shared/types';
 import { categoryFindConfig } from './config/categoryConfig';
 import { validateCategories } from './helpers';

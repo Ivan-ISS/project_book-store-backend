@@ -6,7 +6,7 @@ export const validateBook = (book: IBook): string | null => {
     }
 
     const requiredFields = new Set<keyof IBook>([ 
-        'name', 'price', 'language', 'description', 'yearPublished', 'currency', 'categories', 'authors'
+        'name', 'price', 'language', 'description', 'yearPublished'/* , 'currency', 'categories', 'authors' */
     ]);
 
     let wrongFieldName;

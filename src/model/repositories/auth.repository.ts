@@ -52,6 +52,26 @@ export class AuthRepository {
 
     public async addToCart(bookData: BookAddToCart) {
 
+        const user = await this.dbService.client.user.findUnique({
+            where: {
+                id: bookData[1],
+            },
+        });
+
+        if (!user) {
+            return { status: 404, message: `User with id: ${bookData[1]} is not found`, data: null };
+        }
+
+        const book = await this.dbService.client.book.findUnique({
+            where: {
+                id: bookData[0],
+            },
+        });
+
+        if (!book) {
+            return { status: 404, message: `Book with id: ${bookData[0]} is not found`, data: null };
+        }
+
         await this.dbService.client.user_Books.create({
             data: {
                 bookId: bookData[0],

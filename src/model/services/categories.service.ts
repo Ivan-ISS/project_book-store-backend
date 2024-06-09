@@ -1,5 +1,4 @@
 import { CategoriesRepository } from '../repositories/categories.repository';
-// import { Category } from '@prisma/client';
 import { ICategory, ICategorySearchFilter } from '@Shared/types';
 
 export class CategoriesService {

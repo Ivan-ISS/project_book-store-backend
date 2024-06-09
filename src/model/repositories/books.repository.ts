@@ -9,6 +9,7 @@ export class BooksRepository {
         this.dbService = dbService;
     }
 
+//=========================================== Получение книг ===================================================
     public async getBooks(
         { perPage = 6, page = 1, category }: IBookSearchFilter,
         withAuthors = true,
@@ -43,6 +44,7 @@ export class BooksRepository {
 
     // public async findById(bookId: string | number) { ... }
 
+//=========================================== Создание книги ===================================================
     public async createBook(bookData: IBook) {
 
         const validationResult = validateBook(bookData);
@@ -134,6 +136,7 @@ export class BooksRepository {
         return {status: 201, message: null, data: createdBook};
     }
 
+//=========================================== Редактирование книги ===================================================
     public async editBook(bookId: string | number, bookData: IBook) {
 
         const validationId = isNaN(Number(bookId));
@@ -149,10 +152,10 @@ export class BooksRepository {
             return { status: 404, message: `Book with id: ${bookId} is not found`, data: null };
         }
 
-        const validationResult = validateBook(bookData);
+        /* const validationResult = validateBook(bookData);
         if (validationResult) {
             return {status: 400, message: validationResult, data: null};
-        }
+        } */
 
         const existingCategories = await this.dbService.client.category.findMany({  // Проверка наличия категорий в БД
             where: {
@@ -217,31 +220,36 @@ export class BooksRepository {
             data: bookCreateConfig(bookData, existingCurrency),
         });
 
-        await this.dbService.client.book_Authors.deleteMany({
-            where: { bookId: Number(bookId) },
-        });
+        if (bookData.authors?.length) {
+            await this.dbService.client.book_Authors.deleteMany({
+                where: { bookId: Number(bookId) },
+            });
 
-        await this.dbService.client.book_Categories.deleteMany({
-            where: { bookId: Number(bookId) },
-        });
+            await this.dbService.client.book_Authors.createMany({
+                data: [...existingAuthors, ...createdAuthors].map(author => ({
+                bookId: Number(bookId),
+                authorId: author.id,
+                })),
+            });
+        }
 
-        await this.dbService.client.book_Authors.createMany({
-            data: [...existingAuthors, ...createdAuthors].map(author => ({
-              bookId: Number(bookId),
-              authorId: author.id,
-            })),
-        });
+        if (bookData.authors?.length) {
+            await this.dbService.client.book_Categories.deleteMany({
+                where: { bookId: Number(bookId) },
+            });
 
-        await this.dbService.client.book_Categories.createMany({
-            data: existingCategories.map(category => ({
-              bookId: Number(bookId),
-              categoryId: category.id,
-            })),
-        });
+            await this.dbService.client.book_Categories.createMany({
+                data: existingCategories.map(category => ({
+                bookId: Number(bookId),
+                categoryId: category.id,
+                })),
+            });
+        }
 
         return { status: 200, message: null, data: updatedBook };
     }
 
+//=========================================== Удаление книги ===================================================
     public async removeBook(bookId: string | number) {
 
         const validationId = isNaN(Number(bookId));
@@ -262,6 +270,10 @@ export class BooksRepository {
         });
 
         await this.dbService.client.book_Categories.deleteMany({
+            where: { bookId: Number(bookId) },
+        });
+
+        await this.dbService.client.user_Books.deleteMany({
             where: { bookId: Number(bookId) },
         });
 
