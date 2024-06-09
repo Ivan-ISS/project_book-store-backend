@@ -14,7 +14,8 @@ export const inclusion = (withAuthors: boolean, withCategories: boolean) => {
             include: {
                 category: withCategories,
             }
-        }
+        },
+        currency: true,
     });
 };
 

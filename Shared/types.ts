@@ -67,13 +67,15 @@ export interface ICategorySearchFilter {
     page?: number;
 }
 
-export interface IAuth {
+/* export interface IAuth {
     username: string;
     password: string;
-}
+} */
 
 export interface JwtPayload {
         email: string;
         password: string;
         iat: string
 }
+
+export type BookAddToCart = [number, number];

@@ -1,7 +1,7 @@
 import * as jwt from 'jsonwebtoken';
 import * as crypto from 'crypto';
 import { AuthRepository } from '../repositories/auth.repository';
-import { /* JwtPayload */ IUser } from '@Shared/types';
+import { /* JwtPayload */ IUser, BookAddToCart } from '@Shared/types';
 
 export class AuthService {
 
@@ -54,6 +54,16 @@ export class AuthService {
         console.log('token login: ', dataToken);
         console.log(data?.password === hashedProvidedPassword);
 
-        return { status, message, data: data?.password === hashedProvidedPassword ? dataToken : null };
+        return { status, message, data: data?.password === hashedProvidedPassword ? { ...data, token: dataToken } : null };
+    }
+
+    public async addToCart(bookData: BookAddToCart) {
+        const { status, message } = await this.authRepository.addToCart(bookData);
+        return { status, message };
+    }
+
+    public async getBooks(userId: string) {
+        const { status, message, data } = await this.authRepository.getBooks(userId);
+        return { status, message, data };
     }
 }

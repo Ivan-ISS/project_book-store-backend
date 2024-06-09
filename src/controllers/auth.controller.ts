@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
+import { ParamsDictionary } from 'express-serve-static-core';
 import { Controller } from './controller';
 import { AuthService } from '../model/services/auth.service';
-import { ValidateMiddleware } from '../middleware/middleware';
-import { IUser } from '@Shared/types';
+import { ValidateMiddleware, LoggerMiddleware } from '../middleware/middleware';
+import { IUser, BookAddToCart } from '@Shared/types';
 
 export class AuthController extends Controller {
 
@@ -23,6 +24,18 @@ export class AuthController extends Controller {
                 method: 'post',
                 fn: this.login,
                 middleware: [new ValidateMiddleware()],
+            },
+            {
+                routerPath: '/addToCart',
+                method: 'post',
+                fn: this.addToCart,
+                middleware: [new LoggerMiddleware()],
+            },
+            {
+                routerPath: '/books/:id',
+                method: 'get',
+                fn: this.getBooks,
+                middleware: [new LoggerMiddleware()],
             }
         ]);
     }
@@ -48,8 +61,35 @@ export class AuthController extends Controller {
 
     private async login(req: Request<object, object, IUser>, res: Response) {
         try {
-            console.log('email: ', req.body);
+
             const { status, message, data } = await this.authService.loginUser(req.body);
+
+            res.status(status);
+            data ? res.send(data)
+            : message && res.send(message);
+            return;
+        } catch (error) {
+            this.throwServerError(res, error as Error);
+        }
+    }
+
+    private async addToCart(req: Request<object, object, BookAddToCart>, res: Response) {
+        try {
+
+            const { status, message } = await this.authService.addToCart(req.body);
+
+            res.status(status);
+            res.send(message);
+            return;
+        } catch (error) {
+            this.throwServerError(res, error as Error);
+        }
+    }
+
+    private async getBooks(req: Request<ParamsDictionary>, res: Response) {
+        try {
+
+            const { status, message, data } = await this.authService.getBooks(req.params.id);
 
             res.status(status);
             data ? res.send(data)
