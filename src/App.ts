@@ -4,6 +4,7 @@ import { json } from 'body-parser';
 import { BooksController } from './controllers/books.controller';
 import { AuthController } from './controllers/auth.controller';
 import { CategoriesController } from './controllers/categories.controller';
+import { RatingController } from './controllers/rating.controller';
 
 export class App {
     private app: Express;
@@ -11,7 +12,12 @@ export class App {
     private readonly host: string;
     // private booksRouter: BooksRouter;                            // --- это первый пример для запуска роутера из папки api
 
-    constructor(private booksController: BooksController, private authController: AuthController, private categoriesController: CategoriesController) {
+    constructor(
+            private booksController: BooksController,
+            private authController: AuthController,
+            private categoriesController: CategoriesController,
+            private ratingController: RatingController,
+        ) {
         this.app = express();
         this.port = Number(process.env.APP_PORT) || 3000;
         this.host = process.env.APP_HOST || 'localhost';
@@ -19,6 +25,7 @@ export class App {
         this.booksController = booksController;
         this.authController = authController;
         this.categoriesController = categoriesController;
+        this.ratingController = ratingController;
     }
 
     private configureRoutes() {
@@ -26,6 +33,7 @@ export class App {
         this.app.use('/api/v1/books', this.booksController.router);
         this.app.use('/api/v1/categories', this.categoriesController.router);
         this.app.use('/api/v1/user', this.authController.router);
+        this.app.use('/api/v1/rating', this.ratingController.router);
     }
 
     public async run() {

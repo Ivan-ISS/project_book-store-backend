@@ -10,6 +10,9 @@ import { AuthRepository } from './src/model/repositories/auth.repository';
 import { CategoriesController } from './src/controllers/categories.controller';
 import { CategoriesService } from './src/model/services/categories.service';   // --- для внедрения зависимостей через конструктор класса
 import { CategoriesRepository } from './src/model/repositories/categories.repository';
+import { RatingController } from './src/controllers/rating.controller';
+import { RatingService } from './src/model/services/rating.service';   // --- для внедрения зависимостей через конструктор класса
+import { RatingRepository } from './src/model/repositories/rating.repository';
 import { DBService } from './src/db/dbService';
 
 dotenv.config();
@@ -22,8 +25,9 @@ async function bootstrap() {
     const booksController = new BooksController(new BooksService(new BooksRepository(new DBService)));   // --- для внедрения зависимостей через конструктор класса
     const authController = new AuthController(new AuthService(new AuthRepository(new DBService)));
     const categoriesController = new CategoriesController(new CategoriesService(new CategoriesRepository(new DBService)));
+    const ratingController = new RatingController(new RatingService(new RatingRepository(new DBService)));
 
-    const app = new App(booksController, authController, categoriesController);                            // --- для внедрения зависимостей через конструктор класса
+    const app = new App(booksController, authController, categoriesController, ratingController);        // --- для внедрения зависимостей через конструктор класса
 
     await app.run();
 }

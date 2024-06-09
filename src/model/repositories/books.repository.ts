@@ -249,6 +249,10 @@ export class BooksRepository {
             where: { bookId: Number(bookId) },
         });
 
+        await this.dbService.client.rating.deleteMany({
+            where: { bookId: Number(bookId) },
+        });
+
         await this.dbService.client.book.delete({
             where: { id: Number(bookId) },
         });
