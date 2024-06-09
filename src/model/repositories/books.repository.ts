@@ -1,5 +1,5 @@
 import { DBService } from '../../db/dbService';
-import { Author } from '@prisma/client';
+import { Author, Book } from '@prisma/client';
 import { IBookSearchFilter, IBook } from '@Shared/types';
 import { bookFindConfig, bookCreateConfig } from './config/bookConfig';
 import { validateBook } from './helpers';
@@ -19,9 +19,25 @@ export class BooksRepository {
         // const booksList = await this.dbService.client.$queryRaw`SELECT * from Book`;
 
         // Если мы используем ORM
-        const booksList = await this.dbService.client.book.findMany(
+        const booksList: (Book & { averageRating?: number })[] = await this.dbService.client.book.findMany(     // Тип Book привели к нужному (с учетом среднего рейтинга)
             bookFindConfig({ perPage, page, category }, withAuthors, withCategories)
         );
+
+        const averageRatings = await this.dbService.client.rating.groupBy({
+            by: ['bookId'],
+            _avg: {
+              value: true,
+            },
+          });
+
+        booksList.forEach(book => {
+            const averageRating = averageRatings.find(rating => rating.bookId === book.id)?._avg.value;
+
+            if (averageRating) {
+                book.averageRating = averageRating;
+              }
+        });
+
         return {status: 201, message: null, data: booksList};
     }
 
