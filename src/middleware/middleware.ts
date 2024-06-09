@@ -45,8 +45,10 @@ export class ValidateMiddleware extends Middleware {
 export class AuthMiddleware extends Middleware {
     public handle(req: Request, res: Response, next: NextFunction) {
         let token;
-        if (typeof req.headers.Authorization === 'string') {
-            token = req.headers.Authorization.split(' ')[1];
+        console.log(req.headers.authorization);
+        if (typeof req.headers.authorization === 'string') {
+            token = req.headers.authorization/* .split(' ')[1] */;
+            console.log(token);
         }
         if (token && process.env.JWTSECRET) {
             /* const decoded = */ verify(token, process.env.JWTSECRET, (err: unknown, payload: unknown) => {

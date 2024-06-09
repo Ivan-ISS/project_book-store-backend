@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { Controller } from './controller';
 import { RatingService } from '../model/services/rating.service';
-import { LoggerMiddleware } from '../middleware/middleware';
+import { AuthMiddleware } from '../middleware/middleware';
 import { IRating } from '@Shared/types';
 
 export class RatingController extends Controller {
@@ -16,7 +16,7 @@ export class RatingController extends Controller {
                 routerPath: '/',
                 method: 'post',
                 fn: this.addRating,
-                middleware: [new LoggerMiddleware()],
+                middleware: [new AuthMiddleware()],
             }
         ]);
     }
