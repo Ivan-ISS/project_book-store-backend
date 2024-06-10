@@ -18,14 +18,14 @@ export class AuthRepository {
             return { status: 400, message: `A user with this email: ${authDate.email} already exists`, data: null };
         }
 
-        await this.dbService.client.user.create({
+        const createdUser = await this.dbService.client.user.create({
             data: {
                 email: authDate.email,
                 password: authDate.password,
             }
         });
 
-        return { status: 201, message: null };
+        return { status: 201, message: null, data: createdUser };
     }
 
     public async getUser(authDate: IUser) {

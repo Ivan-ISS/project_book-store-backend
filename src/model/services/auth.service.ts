@@ -26,12 +26,12 @@ export class AuthService {
             dataToken = token;
         });
 
-        const { status, message } = await this.authRepository.createUser(authDate);
+        const { status, message, data } = await this.authRepository.createUser(authDate);
 
         // console.log('authData: ', authDate);
         console.log('token register: ', dataToken);
 
-        return { status, message, data: status === 201 ? dataToken : null };
+        return { status, message, data: status === 201 ? { ...data, token: dataToken } : null };
     }
 
     public async loginUser(authDate: IUser) {
