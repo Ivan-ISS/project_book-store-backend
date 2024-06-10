@@ -233,7 +233,7 @@ export class BooksRepository {
             });
         }
 
-        if (bookData.authors?.length) {
+        if (bookData.categories?.length) {
             await this.dbService.client.book_Categories.deleteMany({
                 where: { bookId: Number(bookId) },
             });
