@@ -54,6 +54,10 @@ export class AuthService {
         console.log('token login: ', dataToken);
         console.log(data?.password === hashedProvidedPassword);
 
+        if (status === 404) {
+            return { status, message, data };
+        }
+
         if (data?.password !== hashedProvidedPassword) {
             return { status: 401, message:'Incorrect password entered', data: null };
         }
