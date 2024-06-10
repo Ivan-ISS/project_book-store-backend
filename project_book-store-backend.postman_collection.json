@@ -1,0 +1,2557 @@
+{
+	"info": {
+		"_postman_id": "0e36c941-37f8-4354-a6bd-9e23606823fb",
+		"name": "project_book-store-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34471044"
+	},
+	"item": [
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "books list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/{{api_path}}/{{version}}/books?perPage=6&page=1&category=Travel",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api_path}}",
+								"{{version}}",
+								"books"
+							],
+							"query": [
+								{
+									"key": "perPage",
+									"value": "6"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "category",
+									"value": "Travel"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "books list - 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/books",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Age",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3394"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 07:06:25 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"d42-Lp+iSU/uozoN7Gf5ldniQ9r0iLs\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::6ljbq-1718003181945-9c8713c72127"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Architecture\",\n        \"price\": \"8.79\",\n        \"language\": \"En\",\n        \"description\": \"The aim of this book is to expand the subject and matter of architecture, and to explore their interdependence\",\n        \"yearPublished\": 2001,\n        \"currencyId\": 1,\n        \"authors\": [\n            {\n                \"bookId\": 1,\n                \"authorId\": 1,\n                \"author\": {\n                    \"id\": 1,\n                    \"firstName\": \"Jonathan\",\n                    \"lastName\": \"Hill\",\n                    \"yearsActive\": \"1935-2023\"\n                }\n            },\n            {\n                \"bookId\": 1,\n                \"authorId\": 2,\n                \"author\": {\n                    \"id\": 2,\n                    \"firstName\": \"Emily\",\n                    \"lastName\": \"Thompson\",\n                    \"yearsActive\": \"1945-present\"\n                }\n            },\n            {\n                \"bookId\": 1,\n                \"authorId\": 3,\n                \"author\": {\n                    \"id\": 3,\n                    \"firstName\": \"Peter\",\n                    \"lastName\": \"Galison\",\n                    \"yearsActive\": \"1948-present\"\n                }\n            }\n        ],\n        \"categories\": [\n            {\n                \"bookId\": 1,\n                \"categoryId\": 1,\n                \"category\": {\n                    \"id\": 1,\n                    \"name\": \"Architecture\"\n                }\n            },\n            {\n                \"bookId\": 1,\n                \"categoryId\": 5,\n                \"category\": {\n                    \"id\": 5,\n                    \"name\": \"Crafts & Hobbies\"\n                }\n            }\n        ],\n        \"currency\": {\n            \"id\": 1,\n            \"name\": \"Russian Ruble\",\n            \"acronym\": \"RUB\"\n        }\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Some Essays on Golf-Course Architecture\",\n        \"price\": \"5.79\",\n        \"language\": \"En\",\n        \"description\": \"Some Essays on Golf-Course Architecture features selected writings from prominent architects of the early 20th century\",\n        \"yearPublished\": 2020,\n        \"currencyId\": 1,\n        \"authors\": [\n            {\n                \"bookId\": 2,\n                \"authorId\": 3,\n                \"author\": {\n                    \"id\": 3,\n                    \"firstName\": \"Peter\",\n                    \"lastName\": \"Galison\",\n                    \"yearsActive\": \"1948-present\"\n                }\n            }\n        ],\n        \"categories\": [\n            {\n                \"bookId\": 2,\n                \"categoryId\": 2,\n                \"category\": {\n                    \"id\": 2,\n                    \"name\": \"Art\"\n                }\n            },\n            {\n                \"bookId\": 2,\n                \"categoryId\": 6,\n                \"category\": {\n                    \"id\": 6,\n                    \"name\": \"Drama\"\n                }\n            }\n        ],\n        \"currency\": {\n            \"id\": 1,\n            \"name\": \"Russian Ruble\",\n            \"acronym\": \"RUB\"\n        }\n    },\n    {\n        \"id\": 3,\n        \"name\": \"The Architecture of Science\",\n        \"price\": \"10.59\",\n        \"language\": \"En\",\n        \"description\": \"Table of Contents The Architecture of Science by Galison, Peter L. (Editor); Edelman, Shimon (Editor); Thompson, Emily (Editor)\",\n        \"yearPublished\": 1999,\n        \"currencyId\": 1,\n        \"authors\": [\n            {\n                \"bookId\": 3,\n                \"authorId\": 3,\n                \"author\": {\n                    \"id\": 3,\n                    \"firstName\": \"Peter\",\n                    \"lastName\": \"Galison\",\n                    \"yearsActive\": \"1948-present\"\n                }\n            }\n        ],\n        \"categories\": [\n            {\n                \"bookId\": 3,\n                \"categoryId\": 3,\n                \"category\": {\n                    \"id\": 3,\n                    \"name\": \"Biography & Autobiography\"\n                }\n            }\n        ],\n        \"currency\": {\n            \"id\": 1,\n            \"name\": \"Russian Ruble\",\n            \"acronym\": \"RUB\"\n        }\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Architecture Subjects Itself\",\n        \"price\": \"1.79\",\n        \"language\": \"En\",\n        \"description\": \"Best description\",\n        \"yearPublished\": 1993,\n        \"currencyId\": 1,\n        \"authors\": [\n            {\n                \"bookId\": 4,\n                \"authorId\": 2,\n                \"author\": {\n                    \"id\": 2,\n                    \"firstName\": \"Emily\",\n                    \"lastName\": \"Thompson\",\n                    \"yearsActive\": \"1945-present\"\n                }\n            }\n        ],\n        \"categories\": [\n            {\n                \"bookId\": 4,\n                \"categoryId\": 4,\n                \"category\": {\n                    \"id\": 4,\n                    \"name\": \"Business\"\n                }\n            }\n        ],\n        \"currency\": {\n            \"id\": 1,\n            \"name\": \"Russian Ruble\",\n            \"acronym\": \"RUB\"\n        }\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Architecture for a Free Subjectivity\",\n        \"price\": \"3.39\",\n        \"language\": \"En\",\n        \"description\": \"Architecture for a Free Subjectivity reformulates the French philosopher Gilles Deleuze`s model of subjectivity for architecture\",\n        \"yearPublished\": 2013,\n        \"currencyId\": 1,\n        \"authors\": [\n            {\n                \"bookId\": 5,\n                \"authorId\": 3,\n                \"author\": {\n                    \"id\": 3,\n                    \"firstName\": \"Peter\",\n                    \"lastName\": \"Galison\",\n                    \"yearsActive\": \"1948-present\"\n                }\n            }\n        ],\n        \"categories\": [\n            {\n                \"bookId\": 5,\n                \"categoryId\": 5,\n                \"category\": {\n                    \"id\": 5,\n                    \"name\": \"Crafts & Hobbies\"\n                }\n            }\n        ],\n        \"currency\": {\n            \"id\": 1,\n            \"name\": \"Russian Ruble\",\n            \"acronym\": \"RUB\"\n        }\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Golf Architecture: Economy in Course Construction and Green-Keeping\",\n        \"price\": \"88.15\",\n        \"language\": \"En\",\n        \"description\": \"Golf Architecture: Economy in Course Construction and Green-Keeping\\\\\\\" by A. Mackenzie\",\n        \"yearPublished\": 2023,\n        \"currencyId\": 1,\n        \"authors\": [\n            {\n                \"bookId\": 6,\n                \"authorId\": 1,\n                \"author\": {\n                    \"id\": 1,\n                    \"firstName\": \"Jonathan\",\n                    \"lastName\": \"Hill\",\n                    \"yearsActive\": \"1935-2023\"\n                }\n            }\n        ],\n        \"categories\": [\n            {\n                \"bookId\": 6,\n                \"categoryId\": 6,\n                \"category\": {\n                    \"id\": 6,\n                    \"name\": \"Drama\"\n                }\n            }\n        ],\n        \"currency\": {\n            \"id\": 1,\n            \"name\": \"Russian Ruble\",\n            \"acronym\": \"RUB\"\n        }\n    }\n]"
+						},
+						{
+							"name": "books list filter - 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{base_url}}/{{api_path}}/{{version}}/books?perPage=6&page=1&category=Travel",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api_path}}",
+										"{{version}}",
+										"books"
+									],
+									"query": [
+										{
+											"key": "perPage",
+											"value": "6"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "category",
+											"value": "Travel"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Age",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1174"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 07:08:13 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"496-1YRNFu4QlX0xe8/OGGpltWrjyCk\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::krzn4-1718003292062-90adc4a574fe"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 16,\n        \"name\": \"Postgraduate UK study and funding guide\",\n        \"price\": \"120.15\",\n        \"language\": \"En\",\n        \"description\": \"Features information on studying at Postgraduate level in the UK, what is involved\",\n        \"yearPublished\": 2008,\n        \"currencyId\": 1,\n        \"authors\": [\n            {\n                \"bookId\": 16,\n                \"authorId\": 2,\n                \"author\": {\n                    \"id\": 2,\n                    \"firstName\": \"Emily\",\n                    \"lastName\": \"Thompson\",\n                    \"yearsActive\": \"1945-present\"\n                }\n            }\n        ],\n        \"categories\": [\n            {\n                \"bookId\": 16,\n                \"categoryId\": 16,\n                \"category\": {\n                    \"id\": 16,\n                    \"name\": \"Travel\"\n                }\n            }\n        ],\n        \"currency\": {\n            \"id\": 1,\n            \"name\": \"Russian Ruble\",\n            \"acronym\": \"RUB\"\n        }\n    },\n    {\n        \"id\": 72,\n        \"name\": \"Title Six\",\n        \"price\": \"150.11\",\n        \"language\": \"en\",\n        \"description\": \"It's cool very cool\",\n        \"yearPublished\": 1988,\n        \"currencyId\": 1,\n        \"authors\": [\n            {\n                \"bookId\": 72,\n                \"authorId\": 2,\n                \"author\": {\n                    \"id\": 2,\n                    \"firstName\": \"Emily\",\n                    \"lastName\": \"Thompson\",\n                    \"yearsActive\": \"1945-present\"\n                }\n            },\n            {\n                \"bookId\": 72,\n                \"authorId\": 25,\n                \"author\": {\n                    \"id\": 25,\n                    \"firstName\": \"Paul\",\n                    \"lastName\": \"Shepheard\",\n                    \"yearsActive\": \"1968-present\"\n                }\n            }\n        ],\n        \"categories\": [\n            {\n                \"bookId\": 72,\n                \"categoryId\": 1,\n                \"category\": {\n                    \"id\": 1,\n                    \"name\": \"Architecture\"\n                }\n            },\n            {\n                \"bookId\": 72,\n                \"categoryId\": 4,\n                \"category\": {\n                    \"id\": 4,\n                    \"name\": \"Business\"\n                }\n            },\n            {\n                \"bookId\": 72,\n                \"categoryId\": 16,\n                \"category\": {\n                    \"id\": 16,\n                    \"name\": \"Travel\"\n                }\n            }\n        ],\n        \"currency\": {\n            \"id\": 1,\n            \"name\": \"Russian Ruble\",\n            \"acronym\": \"RUB\"\n        },\n        \"averageRating\": 5\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "create book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Title Title\",\r\n    \"price\": 150.11,\r\n    \"language\": \"en\",\r\n    \"description\": \"About book\",\r\n    \"yearPublished\": 1988,\r\n    \"currency\": {\r\n        \"name\": \"Russian Ruble\",\r\n        \"acronym\": \"RUB\"\r\n    },\r\n    \"authors\": [\r\n        {\r\n            \"firstName\": \"Emily\",\r\n            \"lastName\": \"Thompson\",\r\n            \"yearsActive\": \"1945-present\"\r\n        },\r\n        {\r\n            \"firstName\": \"Paul\",\r\n            \"lastName\": \"Shepheard\",\r\n            \"yearsActive\": \"1968-present\"\r\n        }\r\n    ],\r\n    \"categories\": [\r\n        {\r\n            \"name\": \"Architecture\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/{{api_path}}/{{version}}/books",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api_path}}",
+								"{{version}}",
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create successfully - 201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Title Title\",\r\n    \"price\": 150.11,\r\n    \"language\": \"en\",\r\n    \"description\": \"About book\",\r\n    \"yearPublished\": 1988,\r\n    \"currency\": {\r\n        \"name\": \"Russian Ruble\",\r\n        \"acronym\": \"RUB\"\r\n    },\r\n    \"authors\": [\r\n        {\r\n            \"firstName\": \"Emily\",\r\n            \"lastName\": \"Thompson\",\r\n            \"yearsActive\": \"1945-present\"\r\n        },\r\n        {\r\n            \"firstName\": \"Paul\",\r\n            \"lastName\": \"Shepheard\",\r\n            \"yearsActive\": \"1968-present\"\r\n        }\r\n    ],\r\n    \"categories\": [\r\n        {\r\n            \"name\": \"Architecture\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/books",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 08:10:27 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"7e-0lkmYgSvYARKyDetlTtf5hpi5JY\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::sswm4-1718007023975-67e59ed6fb76"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 76,\n    \"name\": \"Title Title\",\n    \"price\": \"150.11\",\n    \"language\": \"en\",\n    \"description\": \"About book\",\n    \"yearPublished\": 1988,\n    \"currencyId\": 1\n}"
+						},
+						{
+							"name": "create failed - 400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Title Title\",\r\n    \"price\": 150.11,\r\n    \"language\": \"en\",\r\n    \"yearPublished\": 1988,\r\n    \"currency\": {\r\n        \"name\": \"Russian Ruble\",\r\n        \"acronym\": \"RUB\"\r\n    },\r\n    \"authors\": [\r\n        {\r\n            \"firstName\": \"Emily\",\r\n            \"lastName\": \"Thompson\",\r\n            \"yearsActive\": \"1945-present\"\r\n        },\r\n        {\r\n            \"firstName\": \"Paul\",\r\n            \"lastName\": \"Shepheard\",\r\n            \"yearsActive\": \"1968-present\"\r\n        }\r\n    ],\r\n    \"categories\": [\r\n        {\r\n            \"name\": \"Architecture\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{base_url}}/{{api_path}}/{{version}}/books",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api_path}}",
+										"{{version}}",
+										"books"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 08:14:34 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1b-Gi7LMxtn5RyPw6bDH/N9/07OvXQ\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::pwn46-1718007273735-fe90dfd3bd0a"
+								}
+							],
+							"cookie": [],
+							"body": "Field description is absent"
+						}
+					]
+				},
+				{
+					"name": "update book",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\": 170.11,\r\n    \"description\": \"About book\",\r\n    \"yearPublished\": 1988,\r\n    \"authors\": [\r\n        {\r\n            \"firstName\": \"Jonathan\",\r\n            \"lastName\": \"Hill\",\r\n            \"yearsActive\": \"1935-2023\"\r\n        },\r\n        {\r\n            \"firstName\": \"Peter\",\r\n            \"lastName\": \"Galison\",\r\n            \"yearsActive\": \"1948-present\"\r\n        }\r\n    ],\r\n    \"categories\": [\r\n        {\r\n            \"name\": \"Humor\"\r\n        },\r\n        {\r\n            \"name\": \"Travel\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/{{api_path}}/{{version}}/books/76",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api_path}}",
+								"{{version}}",
+								"books",
+								"76"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "wrong id - 404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"price\": 170.11,\r\n    \"description\": \"About book\",\r\n    \"yearPublished\": 1988,\r\n    \"authors\": [\r\n        {\r\n            \"firstName\": \"Jonathan\",\r\n            \"lastName\": \"Hill\",\r\n            \"yearsActive\": \"1935-2023\"\r\n        },\r\n        {\r\n            \"firstName\": \"Peter\",\r\n            \"lastName\": \"Galison\",\r\n            \"yearsActive\": \"1948-present\"\r\n        }\r\n    ],\r\n    \"categories\": [\r\n        {\r\n            \"name\": \"Humor\"\r\n        },\r\n        {\r\n            \"name\": \"Travel\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/books/75",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books",
+										"75"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 08:19:18 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1d-0ImIY/8ubqfwm7OeKcQz1WTeJRU\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::pcjlg-1718007557277-57803ac93963"
+								}
+							],
+							"cookie": [],
+							"body": "Book with id: 75 is not found"
+						},
+						{
+							"name": "OK - 200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"price\": 170.11,\r\n    \"description\": \"About book\",\r\n    \"yearPublished\": 1988,\r\n    \"authors\": [\r\n        {\r\n            \"firstName\": \"Jonathan\",\r\n            \"lastName\": \"Hill\",\r\n            \"yearsActive\": \"1935-2023\"\r\n        },\r\n        {\r\n            \"firstName\": \"Peter\",\r\n            \"lastName\": \"Galison\",\r\n            \"yearsActive\": \"1948-present\"\r\n        }\r\n    ],\r\n    \"categories\": [\r\n        {\r\n            \"name\": \"Humor\"\r\n        },\r\n        {\r\n            \"name\": \"Travel\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{base_url}}/{{api_path}}/{{version}}/books/76",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api_path}}",
+										"{{version}}",
+										"books",
+										"76"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 08:22:17 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"7e-QSpxbk7XS+q/MPkhJKT/3ar7Uzw\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::zk6cs-1718007734633-c49b68e8ce8e"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 76,\n    \"name\": \"Title Title\",\n    \"price\": \"170.11\",\n    \"language\": \"en\",\n    \"description\": \"About book\",\n    \"yearPublished\": 1988,\n    \"currencyId\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "delete book",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/{{api_path}}/{{version}}/books/75",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api_path}}",
+								"{{version}}",
+								"books",
+								"75"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK - 200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/books/74",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"books",
+										"74"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 08:30:04 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"21-H0Q8ZE1uabRrl2CS4+SwPVMzEIE\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::g8t7b-1718008201217-8cb6e34d9148"
+								}
+							],
+							"cookie": [],
+							"body": "Book with id: 74 has been deleted"
+						},
+						{
+							"name": "wrong id - 404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{base_url}}/{{api_path}}/{{version}}/books/75",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api_path}}",
+										"{{version}}",
+										"books",
+										"75"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 08:31:00 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1d-0ImIY/8ubqfwm7OeKcQz1WTeJRU\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::8hjbb-1718008260073-102701dec83e"
+								}
+							],
+							"cookie": [],
+							"body": "Book with id: 75 is not found"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "categories list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/{{api_path}}/{{version}}/categories?perPage=10&page=1",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api_path}}",
+								"{{version}}",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "perPage",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "categories list - 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/categories",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Age",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 09:16:07 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1100-Rd5sqt0/LedAa6VhiNOJKweN2kM\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::p8zvd-1718010964939-85b59cbee2ea"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Architecture\",\n        \"books\": [\n            {\n                \"bookId\": 1,\n                \"categoryId\": 1,\n                \"book\": {\n                    \"id\": 1,\n                    \"name\": \"Architecture\",\n                    \"price\": \"8.79\",\n                    \"language\": \"En\",\n                    \"description\": \"The aim of this book is to expand the subject and matter of architecture, and to explore their interdependence\",\n                    \"yearPublished\": 2001,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 17,\n                \"categoryId\": 1,\n                \"book\": {\n                    \"id\": 17,\n                    \"name\": \"Pragmatic Enterprise Architecture\",\n                    \"price\": \"15.79\",\n                    \"language\": \"En\",\n                    \"description\": \"Pragmatic Enterprise Architecture is a practical hands-on instruction manual for enterprise architects. This book prepares you to better engage IT, management, and business users by equipping you with the tools\",\n                    \"yearPublished\": 2014,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 72,\n                \"categoryId\": 1,\n                \"book\": {\n                    \"id\": 72,\n                    \"name\": \"Title Six\",\n                    \"price\": \"150.11\",\n                    \"language\": \"en\",\n                    \"description\": \"It's cool very cool\",\n                    \"yearPublished\": 1988,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 73,\n                \"categoryId\": 1,\n                \"book\": {\n                    \"id\": 73,\n                    \"name\": \"Title Seven\",\n                    \"price\": \"150.11\",\n                    \"language\": \"en\",\n                    \"description\": \"It's cool\",\n                    \"yearPublished\": 1978,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Art\",\n        \"books\": [\n            {\n                \"bookId\": 2,\n                \"categoryId\": 2,\n                \"book\": {\n                    \"id\": 2,\n                    \"name\": \"Some Essays on Golf-Course Architecture\",\n                    \"price\": \"5.79\",\n                    \"language\": \"En\",\n                    \"description\": \"Some Essays on Golf-Course Architecture features selected writings from prominent architects of the early 20th century\",\n                    \"yearPublished\": 2020,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 18,\n                \"categoryId\": 2,\n                \"book\": {\n                    \"id\": 18,\n                    \"name\": \"Schools of Architecture\",\n                    \"price\": \"11.59\",\n                    \"language\": \"En\",\n                    \"description\": \"In this book you will find another manifestation of this sub-culture\",\n                    \"yearPublished\": 1996,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Biography & Autobiography\",\n        \"books\": [\n            {\n                \"bookId\": 3,\n                \"categoryId\": 3,\n                \"book\": {\n                    \"id\": 3,\n                    \"name\": \"The Architecture of Science\",\n                    \"price\": \"10.59\",\n                    \"language\": \"En\",\n                    \"description\": \"Table of Contents The Architecture of Science by Galison, Peter L. (Editor); Edelman, Shimon (Editor); Thompson, Emily (Editor)\",\n                    \"yearPublished\": 1999,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 19,\n                \"categoryId\": 3,\n                \"book\": {\n                    \"id\": 19,\n                    \"name\": \"Rethinking Architecture\",\n                    \"price\": \"3.75\",\n                    \"language\": \"En\",\n                    \"description\": \"Brought together for the first time - the seminal writing on architecture by key philosophers and cultural theorist of the twentieth century\",\n                    \"yearPublished\": 2005,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Business\",\n        \"books\": [\n            {\n                \"bookId\": 4,\n                \"categoryId\": 4,\n                \"book\": {\n                    \"id\": 4,\n                    \"name\": \"Architecture Subjects Itself\",\n                    \"price\": \"1.79\",\n                    \"language\": \"En\",\n                    \"description\": \"Best description\",\n                    \"yearPublished\": 1993,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 20,\n                \"categoryId\": 4,\n                \"book\": {\n                    \"id\": 20,\n                    \"name\": \"The Architecture of the Illusive Distance\",\n                    \"price\": \"1.39\",\n                    \"language\": \"En\",\n                    \"description\": \"Focusing on three secular institutional building types: libraries, museums, and cinemas, this book explores the intricate interplay between culture and architecture\",\n                    \"yearPublished\": 2016,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 72,\n                \"categoryId\": 4,\n                \"book\": {\n                    \"id\": 72,\n                    \"name\": \"Title Six\",\n                    \"price\": \"150.11\",\n                    \"language\": \"en\",\n                    \"description\": \"It's cool very cool\",\n                    \"yearPublished\": 1988,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 73,\n                \"categoryId\": 4,\n                \"book\": {\n                    \"id\": 73,\n                    \"name\": \"Title Seven\",\n                    \"price\": \"150.11\",\n                    \"language\": \"en\",\n                    \"description\": \"It's cool\",\n                    \"yearPublished\": 1978,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Crafts & Hobbies\",\n        \"books\": [\n            {\n                \"bookId\": 5,\n                \"categoryId\": 5,\n                \"book\": {\n                    \"id\": 5,\n                    \"name\": \"Architecture for a Free Subjectivity\",\n                    \"price\": \"3.39\",\n                    \"language\": \"En\",\n                    \"description\": \"Architecture for a Free Subjectivity reformulates the French philosopher Gilles Deleuze`s model of subjectivity for architecture\",\n                    \"yearPublished\": 2013,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 1,\n                \"categoryId\": 5,\n                \"book\": {\n                    \"id\": 1,\n                    \"name\": \"Architecture\",\n                    \"price\": \"8.79\",\n                    \"language\": \"En\",\n                    \"description\": \"The aim of this book is to expand the subject and matter of architecture, and to explore their interdependence\",\n                    \"yearPublished\": 2001,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Drama\",\n        \"books\": [\n            {\n                \"bookId\": 6,\n                \"categoryId\": 6,\n                \"book\": {\n                    \"id\": 6,\n                    \"name\": \"Golf Architecture: Economy in Course Construction and Green-Keeping\",\n                    \"price\": \"88.15\",\n                    \"language\": \"En\",\n                    \"description\": \"Golf Architecture: Economy in Course Construction and Green-Keeping\\\\\\\" by A. Mackenzie\",\n                    \"yearPublished\": 2023,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 2,\n                \"categoryId\": 6,\n                \"book\": {\n                    \"id\": 2,\n                    \"name\": \"Some Essays on Golf-Course Architecture\",\n                    \"price\": \"5.79\",\n                    \"language\": \"En\",\n                    \"description\": \"Some Essays on Golf-Course Architecture features selected writings from prominent architects of the early 20th century\",\n                    \"yearPublished\": 2020,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    }\n]"
+						},
+						{
+							"name": "categories list filter - 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{base_url}}/{{api_path}}/{{version}}/categories?perPage=10&page=1",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api_path}}",
+										"{{version}}",
+										"categories"
+									],
+									"query": [
+										{
+											"key": "perPage",
+											"value": "10"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Age",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 09:16:58 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1607-Fiq4ynsz6YyRLMwvgyuxTvk70Z4\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::7jmrv-1718011017945-f62fd671804f"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Architecture\",\n        \"books\": [\n            {\n                \"bookId\": 1,\n                \"categoryId\": 1,\n                \"book\": {\n                    \"id\": 1,\n                    \"name\": \"Architecture\",\n                    \"price\": \"8.79\",\n                    \"language\": \"En\",\n                    \"description\": \"The aim of this book is to expand the subject and matter of architecture, and to explore their interdependence\",\n                    \"yearPublished\": 2001,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 17,\n                \"categoryId\": 1,\n                \"book\": {\n                    \"id\": 17,\n                    \"name\": \"Pragmatic Enterprise Architecture\",\n                    \"price\": \"15.79\",\n                    \"language\": \"En\",\n                    \"description\": \"Pragmatic Enterprise Architecture is a practical hands-on instruction manual for enterprise architects. This book prepares you to better engage IT, management, and business users by equipping you with the tools\",\n                    \"yearPublished\": 2014,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 72,\n                \"categoryId\": 1,\n                \"book\": {\n                    \"id\": 72,\n                    \"name\": \"Title Six\",\n                    \"price\": \"150.11\",\n                    \"language\": \"en\",\n                    \"description\": \"It's cool very cool\",\n                    \"yearPublished\": 1988,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 73,\n                \"categoryId\": 1,\n                \"book\": {\n                    \"id\": 73,\n                    \"name\": \"Title Seven\",\n                    \"price\": \"150.11\",\n                    \"language\": \"en\",\n                    \"description\": \"It's cool\",\n                    \"yearPublished\": 1978,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Art\",\n        \"books\": [\n            {\n                \"bookId\": 2,\n                \"categoryId\": 2,\n                \"book\": {\n                    \"id\": 2,\n                    \"name\": \"Some Essays on Golf-Course Architecture\",\n                    \"price\": \"5.79\",\n                    \"language\": \"En\",\n                    \"description\": \"Some Essays on Golf-Course Architecture features selected writings from prominent architects of the early 20th century\",\n                    \"yearPublished\": 2020,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 18,\n                \"categoryId\": 2,\n                \"book\": {\n                    \"id\": 18,\n                    \"name\": \"Schools of Architecture\",\n                    \"price\": \"11.59\",\n                    \"language\": \"En\",\n                    \"description\": \"In this book you will find another manifestation of this sub-culture\",\n                    \"yearPublished\": 1996,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Biography & Autobiography\",\n        \"books\": [\n            {\n                \"bookId\": 3,\n                \"categoryId\": 3,\n                \"book\": {\n                    \"id\": 3,\n                    \"name\": \"The Architecture of Science\",\n                    \"price\": \"10.59\",\n                    \"language\": \"En\",\n                    \"description\": \"Table of Contents The Architecture of Science by Galison, Peter L. (Editor); Edelman, Shimon (Editor); Thompson, Emily (Editor)\",\n                    \"yearPublished\": 1999,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 19,\n                \"categoryId\": 3,\n                \"book\": {\n                    \"id\": 19,\n                    \"name\": \"Rethinking Architecture\",\n                    \"price\": \"3.75\",\n                    \"language\": \"En\",\n                    \"description\": \"Brought together for the first time - the seminal writing on architecture by key philosophers and cultural theorist of the twentieth century\",\n                    \"yearPublished\": 2005,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Business\",\n        \"books\": [\n            {\n                \"bookId\": 4,\n                \"categoryId\": 4,\n                \"book\": {\n                    \"id\": 4,\n                    \"name\": \"Architecture Subjects Itself\",\n                    \"price\": \"1.79\",\n                    \"language\": \"En\",\n                    \"description\": \"Best description\",\n                    \"yearPublished\": 1993,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 20,\n                \"categoryId\": 4,\n                \"book\": {\n                    \"id\": 20,\n                    \"name\": \"The Architecture of the Illusive Distance\",\n                    \"price\": \"1.39\",\n                    \"language\": \"En\",\n                    \"description\": \"Focusing on three secular institutional building types: libraries, museums, and cinemas, this book explores the intricate interplay between culture and architecture\",\n                    \"yearPublished\": 2016,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 72,\n                \"categoryId\": 4,\n                \"book\": {\n                    \"id\": 72,\n                    \"name\": \"Title Six\",\n                    \"price\": \"150.11\",\n                    \"language\": \"en\",\n                    \"description\": \"It's cool very cool\",\n                    \"yearPublished\": 1988,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 73,\n                \"categoryId\": 4,\n                \"book\": {\n                    \"id\": 73,\n                    \"name\": \"Title Seven\",\n                    \"price\": \"150.11\",\n                    \"language\": \"en\",\n                    \"description\": \"It's cool\",\n                    \"yearPublished\": 1978,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Crafts & Hobbies\",\n        \"books\": [\n            {\n                \"bookId\": 5,\n                \"categoryId\": 5,\n                \"book\": {\n                    \"id\": 5,\n                    \"name\": \"Architecture for a Free Subjectivity\",\n                    \"price\": \"3.39\",\n                    \"language\": \"En\",\n                    \"description\": \"Architecture for a Free Subjectivity reformulates the French philosopher Gilles Deleuze`s model of subjectivity for architecture\",\n                    \"yearPublished\": 2013,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 1,\n                \"categoryId\": 5,\n                \"book\": {\n                    \"id\": 1,\n                    \"name\": \"Architecture\",\n                    \"price\": \"8.79\",\n                    \"language\": \"En\",\n                    \"description\": \"The aim of this book is to expand the subject and matter of architecture, and to explore their interdependence\",\n                    \"yearPublished\": 2001,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Drama\",\n        \"books\": [\n            {\n                \"bookId\": 6,\n                \"categoryId\": 6,\n                \"book\": {\n                    \"id\": 6,\n                    \"name\": \"Golf Architecture: Economy in Course Construction and Green-Keeping\",\n                    \"price\": \"88.15\",\n                    \"language\": \"En\",\n                    \"description\": \"Golf Architecture: Economy in Course Construction and Green-Keeping\\\\\\\" by A. Mackenzie\",\n                    \"yearPublished\": 2023,\n                    \"currencyId\": 1\n                }\n            },\n            {\n                \"bookId\": 2,\n                \"categoryId\": 6,\n                \"book\": {\n                    \"id\": 2,\n                    \"name\": \"Some Essays on Golf-Course Architecture\",\n                    \"price\": \"5.79\",\n                    \"language\": \"En\",\n                    \"description\": \"Some Essays on Golf-Course Architecture features selected writings from prominent architects of the early 20th century\",\n                    \"yearPublished\": 2020,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Fiction\",\n        \"books\": [\n            {\n                \"bookId\": 7,\n                \"categoryId\": 7,\n                \"book\": {\n                    \"id\": 7,\n                    \"name\": \"What Is Architecture?\",\n                    \"price\": \"15.79\",\n                    \"language\": \"En\",\n                    \"description\": \"British architect and critic Paul Shepheard is a fresh new voice in current postmodern debates about the history and meaning of architecture\",\n                    \"yearPublished\": 2013,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Cooking\",\n        \"books\": [\n            {\n                \"bookId\": 8,\n                \"categoryId\": 8,\n                \"book\": {\n                    \"id\": 8,\n                    \"name\": \"Golf Course Design\",\n                    \"price\": \"11.59\",\n                    \"language\": \"En\",\n                    \"description\": \"Zwei der berühmtesten Golfplatzarchitekten aller Zeiten beantworten Ihnen hier jede erdenkliche Frage zum Thema der Gestaltung von Golfplätzen\",\n                    \"yearPublished\": 1998,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 9,\n        \"name\": \"Health & Fitness\",\n        \"books\": [\n            {\n                \"bookId\": 9,\n                \"categoryId\": 9,\n                \"book\": {\n                    \"id\": 9,\n                    \"name\": \"Forty Ways to Think About Architecture\",\n                    \"price\": \"4.75\",\n                    \"language\": \"En\",\n                    \"description\": \"How do we think about architecture historically andtheoretically? Forty Ways to Think about Architectureprovides an introduction to some\",\n                    \"yearPublished\": 2015,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 10,\n        \"name\": \"History\",\n        \"books\": [\n            {\n                \"bookId\": 10,\n                \"categoryId\": 10,\n                \"book\": {\n                    \"id\": 10,\n                    \"name\": \"Building Theories\",\n                    \"price\": \"3.39\",\n                    \"language\": \"En\",\n                    \"description\": \"Building Theories speaks to the value of words in architecture\",\n                    \"yearPublished\": 2022,\n                    \"currencyId\": 1\n                }\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "create category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"New category!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/{{api_path}}/{{version}}/categories",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api_path}}",
+								"{{version}}",
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create successfully - 201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"New category!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/categories",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categories"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 11:06:50 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"20-31EK6+rz2e3vZtKmeQo2ZGpG9DQ\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::z79s8-1718017609109-19725e8864e4"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 22,\n    \"name\": \"New category!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "edit category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Updated category!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/{{api_path}}/{{version}}/categories/22",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api_path}}",
+								"{{version}}",
+								"categories",
+								"22"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK - 200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Updated category!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/categories/23",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categories",
+										"23"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 12:35:32 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"24-5d88RqH3qiCLi5m2Y9vlhzgK5vs\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::vckjb-1718022931830-6284027b0690"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 23,\n    \"name\": \"Updated category!\"\n}"
+						},
+						{
+							"name": "wrong id - 404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Updated category!\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{base_url}}/{{api_path}}/{{version}}/categories/23",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api_path}}",
+										"{{version}}",
+										"categories",
+										"23"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 11:11:23 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"21-GWAheJqp6qhZ38lyUf4Nc5+jA3Q\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::xjg7t-1718017883407-562eb4035ff5"
+								}
+							],
+							"cookie": [],
+							"body": "Category with id: 23 is not found"
+						}
+					]
+				},
+				{
+					"name": "delete category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/{{api_path}}/{{version}}/categories/23",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api_path}}",
+								"{{version}}",
+								"categories",
+								"23"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK - 200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/categories/22",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categories",
+										"22"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 11:12:47 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"25-N98cGy1fTm4fhTPKl+0kvjRE5ko\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::mvjqw-1718017966745-cf178da8d1e1"
+								}
+							],
+							"cookie": [],
+							"body": "Category with id: 22 has been deleted"
+						},
+						{
+							"name": "wrong id - 404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/categories/23",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categories",
+										"23"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 11:13:06 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"21-GWAheJqp6qhZ38lyUf4Nc5+jA3Q\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::9fqjk-1718017986304-0d19f45b4594"
+								}
+							],
+							"cookie": [],
+							"body": "Category with id: 23 is not found"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"example-password\",\r\n    \"email\": \"example@mail.ru\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/{{api_path}}/{{version}}/user/register",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api_path}}",
+								"{{version}}",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "register successfully - 201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"example-password\",\r\n    \"email\": \"example@mail.ru\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/user/register",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1875"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 11:16:31 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"753-6t4dGwsrQk4I8SH456NB4xR+GAw\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::wqggm-1718018189671-f4b11e18d013"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 30,\n    \"name\": \"\",\n    \"dob\": \"2024-06-10T11:16:31.200Z\",\n    \"description\": \"\",\n    \"email\": \"example@mail.ru\",\n    \"password\": \"1Ga6+5fQScRHcQM3SLLGKkd/R6mh6IL705U4Hui1kXQvl/eJoQOKpGHp2PFAxQnib0AQVCBefCtOuH6/7uwiO6mCc/1BHgdPGVPZ1qvClw2R4X4slY2WTuiW8IHHlxYd4+S6gvXZsO9IuAWDJtc5FOfzyN6lk+PjzildIiAZXafEbqCKjcWFYk8/heUIvYstm4zeZn9fIveZ32PX5w55fAasbHDCgFdX7wNLDG+nectgbTkAk95KBhd7hhDPwkKieDqLNt6qYBJIZCXB4EFG6lyL9VUKDBx1tpjfWLoURT2MKWCFx/o15uNezymne/5Fx4/J2w8aJpceDzR88Iihyz+tUzWUG70427xxsyfg0Lp+LT1CXFOnDCgFuNl9MJygIQkSv4pllOtQGpKoEhWz/nXNz2AClnJLtfdsoTb44SVQsy2PzkJlGcOdA5NGG+Ut0W8Tlrf5SxiVZggNNTlh82HeKAVS+GP6sD7cXY91fVB+FZOJAwXSIr6AEWunikw6y5FddRg0r8pQxyHoq1zcSjUV/EEE3k8ACVHpTL3S44hhc3626FPB73oZ1dN3c+b7nJBvILzMxs4GEFhPxA2OapZHDWjjVvt15/PRQSomDIFFxjpjZCo5YWj1ofZNvH2mTOi7KHE+kDoZRQIK1f8pfN6X2/X2CAs42T4ppFzN6CI=\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV4YW1wbGVAbWFpbC5ydSIsInBhc3N3b3JkIjoiMUdhNis1ZlFTY1JIY1FNM1NMTEdLa2QvUjZtaDZJTDcwNVU0SHVpMWtYUXZsL2VKb1FPS3BHSHAyUEZBeFFuaWIwQVFWQ0JlZkN0T3VINi83dXdpTzZtQ2MvMUJIZ2RQR1ZQWjFxdkNsdzJSNFg0c2xZMldUdWlXOElISGx4WWQ0K1M2Z3ZYWnNPOUl1QVdESnRjNUZPZnp5TjZsaytQanppbGRJaUFaWGFmRWJxQ0tqY1dGWWs4L2hlVUl2WXN0bTR6ZVpuOWZJdmVaMzJQWDV3NTVmQWFzYkhEQ2dGZFg3d05MREcrbmVjdGdiVGtBazk1S0JoZDdoaERQd2tLaWVEcUxOdDZxWUJKSVpDWEI0RUZHNmx5TDlWVUtEQngxdHBqZldMb1VSVDJNS1dDRngvbzE1dU5lenltbmUvNUZ4NC9KMnc4YUpwY2VEelI4OElpaHl6K3RVeldVRzcwNDI3eHhzeWZnMExwK0xUMUNYRk9uRENnRnVObDlNSnlnSVFrU3Y0cGxsT3RRR3BLb0VoV3ovblhOejJBQ2xuSkx0ZmRzb1RiNDRTVlFzeTJQemtKbEdjT2RBNU5HRytVdDBXOFRscmY1U3hpVlpnZ05OVGxoODJIZUtBVlMrR1A2c0Q3Y1hZOTFmVkIrRlpPSkF3WFNJcjZBRVd1bmlrdzZ5NUZkZFJnMHI4cFF4eUhvcTF6Y1NqVVYvRUVFM2s4QUNWSHBUTDNTNDRoaGMzNjI2RlBCNzNvWjFkTjNjK2I3bkpCdklMek14czRHRUZoUHhBMk9hcFpIRFdqalZ2dDE1L1BSUVNvbURJRkZ4anBqWkNvNVlXajFvZlpOdkgybVRPaTdLSEUra0RvWlJRSUsxZjhwZk42WDIvWDJDQXM0MlQ0cHBGek42Q0k9IiwiaWF0IjoxNzE4MDE4MTkxfQ.Gt7ehixwD1wTnA-SvJaQwweUqmej5fKc7QT9iqBaJC4\"\n}"
+						},
+						{
+							"name": "register failed - 400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"example-password\",\r\n    \"email\": \"example@mail.ru\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{base_url}}/{{api_path}}/{{version}}/user/register",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api_path}}",
+										"{{version}}",
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 11:17:15 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"36-uzhqpB/92dII8PZPyjrgh6U5TyM\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::455ph-1718018233912-d57e48710280"
+								}
+							],
+							"cookie": [],
+							"body": "A user with this email: example@mail.ru already exists"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"example-password\",\r\n    \"email\": \"example@mail.ru\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/{{api_path}}/{{version}}/user/login",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api_path}}",
+								"{{version}}",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login succesfully - 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"example-password\",\r\n    \"email\": \"example@mail.ru\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/user/login",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "995"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 11:20:14 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"3e3-V210ABxW2klin2alNnlloGZCsv0\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::mkqbl-1718018412948-e16c4b335f16"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 30,\n    \"name\": \"\",\n    \"dob\": \"2024-06-10T11:16:31.200Z\",\n    \"description\": \"\",\n    \"email\": \"example@mail.ru\",\n    \"password\": \"1Ga6+5fQScRHcQM3SLLGKkd/R6mh6IL705U4Hui1kXQvl/eJoQOKpGHp2PFAxQnib0AQVCBefCtOuH6/7uwiO6mCc/1BHgdPGVPZ1qvClw2R4X4slY2WTuiW8IHHlxYd4+S6gvXZsO9IuAWDJtc5FOfzyN6lk+PjzildIiAZXafEbqCKjcWFYk8/heUIvYstm4zeZn9fIveZ32PX5w55fAasbHDCgFdX7wNLDG+nectgbTkAk95KBhd7hhDPwkKieDqLNt6qYBJIZCXB4EFG6lyL9VUKDBx1tpjfWLoURT2MKWCFx/o15uNezymne/5Fx4/J2w8aJpceDzR88Iihyz+tUzWUG70427xxsyfg0Lp+LT1CXFOnDCgFuNl9MJygIQkSv4pllOtQGpKoEhWz/nXNz2AClnJLtfdsoTb44SVQsy2PzkJlGcOdA5NGG+Ut0W8Tlrf5SxiVZggNNTlh82HeKAVS+GP6sD7cXY91fVB+FZOJAwXSIr6AEWunikw6y5FddRg0r8pQxyHoq1zcSjUV/EEE3k8ACVHpTL3S44hhc3626FPB73oZ1dN3c+b7nJBvILzMxs4GEFhPxA2OapZHDWjjVvt15/PRQSomDIFFxjpjZCo5YWj1ofZNvH2mTOi7KHE+kDoZRQIK1f8pfN6X2/X2CAs42T4ppFzN6CI=\",\n    \"books\": [],\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV4YW1wbGVAbWFpbC5ydSIsInBhc3N3b3JkIjoiZXhhbXBsZS1wYXNzd29yZCIsImlhdCI6MTcxODAxODQxNH0.lfM1VrpcujMKCMTgfSW0Nruc4f1j3AmrTFPo-BZlqLw\"\n}"
+						},
+						{
+							"name": "login failed - 404",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"example-password\",\r\n    \"email\": \"not-exist@mail.ru\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{base_url}}/{{api_path}}/{{version}}/user/login",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api_path}}",
+										"{{version}}",
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 11:23:12 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"31-wXvrm94FMJHqkvQJsEtX3/2invQ\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::bmxkn-1718018590481-f2bc3f801b75"
+								}
+							],
+							"cookie": [],
+							"body": "User with email: not-exist@mail.ru does not exist"
+						},
+						{
+							"name": "password incorrect - 401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"not-exist-password\",\r\n    \"email\": \"example@mail.ru\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{base_url}}/{{api_path}}/{{version}}/user/login",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api_path}}",
+										"{{version}}",
+										"user",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 12:30:32 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1a-scjHtIFnFMJw2f7G6J0gRPDEgn0\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::g289d-1718022630501-54b8243fdad1"
+								}
+							],
+							"cookie": [],
+							"body": "Incorrect password entered"
+						}
+					]
+				},
+				{
+					"name": "get books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/{{api_path}}/{{version}}/user/books/19",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api_path}}",
+								"{{version}}",
+								"user",
+								"books",
+								"19"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK - 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/user/books/19",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"books",
+										"19"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Age",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "635"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 12:36:35 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"27b-7HJ6ZaKAjwziJDeyoIvjL5y8+ZY\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::65rvz-1718022994269-5d8cd6083ddf"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"userId\": 19,\n        \"bookId\": 18,\n        \"book\": {\n            \"id\": 18,\n            \"name\": \"Schools of Architecture\",\n            \"price\": \"11.59\",\n            \"language\": \"En\",\n            \"description\": \"In this book you will find another manifestation of this sub-culture\",\n            \"yearPublished\": 1996,\n            \"currencyId\": 1,\n            \"currency\": {\n                \"id\": 1,\n                \"name\": \"Russian Ruble\",\n                \"acronym\": \"RUB\"\n            }\n        }\n    },\n    {\n        \"userId\": 19,\n        \"bookId\": 15,\n        \"book\": {\n            \"id\": 15,\n            \"name\": \"Analysing Architecture\",\n            \"price\": \"2.45\",\n            \"language\": \"En\",\n            \"description\": \"Now in its fifth edition, Analysing Architecture has become internationally established as the best introduction to architecture\",\n            \"yearPublished\": 2020,\n            \"currencyId\": 1,\n            \"currency\": {\n                \"id\": 1,\n                \"name\": \"Russian Ruble\",\n                \"acronym\": \"RUB\"\n            }\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "edit profile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Arnold\",\r\n    \"description\": \"About me\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}/{{api_path}}/{{version}}/user/30",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api_path}}",
+								"{{version}}",
+								"user",
+								"30"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK - 200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Arnold\",\r\n    \"description\": \"About me\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/user/30",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"30"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 11:53:01 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1e-CINAOeCovhPO70GhkX8Zq/lHrCE\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::868wv-1718020380826-d0463006ef9c"
+								}
+							],
+							"cookie": [],
+							"body": "User details have been updated"
+						},
+						{
+							"name": "wrong id - 404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Arnold\",\r\n    \"description\": \"About me\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{base_url}}/{{api_path}}/{{version}}/user/31",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api_path}}",
+										"{{version}}",
+										"user",
+										"31"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 11:54:40 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1d-ogecqf79XJgM8VzfVlvhxsvs69o\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::4szvc-1718020480620-1f288781a966"
+								}
+							],
+							"cookie": [],
+							"body": "User with id: 31 is not found"
+						}
+					]
+				},
+				{
+					"name": "delete profile",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/{{api_path}}/{{version}}/user/29",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"{{api_path}}",
+								"{{version}}",
+								"user",
+								"29"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK - 200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/user/29",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"29"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 11:55:42 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"21-ds+vzMMjH0RUHM8ySP/wn9Hq3O0\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::8wtkv-1718020541458-03a3d0a7d7eb"
+								}
+							],
+							"cookie": [],
+							"body": "User with id: 29 has been deleted"
+						},
+						{
+							"name": "wrong id - 404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{base_url}}/{{api_path}}/{{version}}/user/29",
+									"protocol": "http",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"{{api_path}}",
+										"{{version}}",
+										"user",
+										"29"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 11:56:00 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"1d-V2UG8jn1V0VmGPSKcqF5Bn3fWdc\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::6llh4-1718020559819-18e76739870d"
+								}
+							],
+							"cookie": [],
+							"body": "Book with id: 29 is not found"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "rating",
+			"item": [
+				{
+					"name": "rating set",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "rating set - 201",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV4YW1wbGVAbWFpbC5ydSIsInBhc3N3b3JkIjoiZXhhbXBsZS1wYXNzd29yZCIsImlhdCI6MTcxODAxODQxNH0.lfM1VrpcujMKCMTgfSW0Nruc4f1j3AmrTFPo-BZlqLw"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"bookId\": 76,\r\n    \"userId\": 30,\r\n    \"value\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/rating",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rating"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "23"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 12:02:53 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"17-75gUE0bpr1KgYxGeh2j72nhQlAc\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::gdf58-1718020971760-a887a9fd0ac0"
+								}
+							],
+							"cookie": [],
+							"body": "The rating has been set"
+						},
+						{
+							"name": "no token - 401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImV4YW1wbGVAbWFpbC5ydSIsInBhc3N3b3JkIjoiZXhhbXBsZS1wYXNzd29yZCIsImlhdCI6MTcxODAxODQxNH0.lfM1VrpcujMKCMTgfSW0Nruc4f1j3AmrTFPo-BZlqLw",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"bookId\": 76,\r\n    \"userId\": 30,\r\n    \"value\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://project-book-store-backend.vercel.app/api/v1/rating",
+									"protocol": "http",
+									"host": [
+										"project-book-store-backend",
+										"vercel",
+										"app"
+									],
+									"path": [
+										"api",
+										"v1",
+										"rating"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 12:37:58 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"22-ttUW1qQWZ0eqpb6H6xWjZWktAgM\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "arn1::iad1::72kz9-1718023078904-8020587c1ab9"
+								}
+							],
+							"cookie": [],
+							"body": "Token not provided! Please log in."
+						}
+					]
+				}
+			]
+		}
+	]
+}
