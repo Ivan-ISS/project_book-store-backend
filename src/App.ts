@@ -38,6 +38,11 @@ export class App {
 
     public async run() {
         this.app.use(json());
+        this.app.use((req, res, next) => {
+            res.header('Access-Control-Allow-Origin', '*');
+            res.header('Access-Control-Allow-Headers', 'Content-Type');
+            next();
+        });
         this.configureRoutes();
         this.app.listen(this.port, this.host, () => {
             console.log(`Приложение запущено на порту ${this.port}`);
