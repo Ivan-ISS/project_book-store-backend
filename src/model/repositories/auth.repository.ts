@@ -102,7 +102,7 @@ export class AuthRepository {
             },
         });
 
-        return {status: 201, message: null, data: user};
+        return {status: 200, message: null, data: user};
     }
 
     public async editUser(userId: string | number, userData: IUser) {

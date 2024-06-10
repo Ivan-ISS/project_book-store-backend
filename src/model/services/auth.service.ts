@@ -54,7 +54,10 @@ export class AuthService {
         console.log('token login: ', dataToken);
         console.log(data?.password === hashedProvidedPassword);
 
-        return { status, message, data: data?.password === hashedProvidedPassword ? { ...data, token: dataToken } : null };
+        if (data?.password !== hashedProvidedPassword) {
+            return { status: 401, message:'Incorrect password entered', data: null };
+        }
+        return { status, message, data: { ...data, token: dataToken } };
     }
 
     public async addToCart(bookData: BookAddToCart) {

@@ -67,7 +67,7 @@ export class AuthMiddleware extends Middleware {
 
             });
         } else {
-            res.status(401).send({ error: true });
+            res.status(401).send('Token not provided! Please log in.');
         }
     }
 }

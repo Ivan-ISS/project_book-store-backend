@@ -36,10 +36,10 @@ export class BooksRepository {
 
             if (averageRating) {
                 book.averageRating = averageRating;
-              }
+            }
         });
 
-        return {status: 201, message: null, data: booksList};
+        return {status: 200, message: null, data: booksList};
     }
 
     // public async findById(bookId: string | number) { ... }

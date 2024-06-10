@@ -61,7 +61,7 @@ export class CategoriesRepository {
             }
         });
 
-        return {status: 201, message: null, data: updatedCategory};
+        return {status: 200, message: null, data: updatedCategory};
     }
 
     public async removeCategory(categoryId: string | number) {
