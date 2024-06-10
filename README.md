@@ -1412,7 +1412,7 @@ Book with id: 29 is not found
 ## End-point: rating set
 ### Method: GET
 >```
->undefined
+>http://project-book-store-backend.vercel.app/api/v1/rating
 >```
 ### Response: 201
 ```json
