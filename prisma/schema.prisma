@@ -79,7 +79,7 @@ model User {
     id                  Int                 @id                     @default(autoincrement())   @map("id")
     name                String              @db.VarChar(255)        @default("")                @map("name")
     dob                 DateTime                                    @default(now())             @map("dob")
-    description         String              @db.VarChar(255)        @default("")                @map("description")
+    description         String              @db.VarChar(5000)        @default("")                @map("description")
     email               String              @db.VarChar(255)        @default("")                @map("email")
     password            String              @db.VarChar(10000)      @default("")                @map("password")
     books               User_Books[]
