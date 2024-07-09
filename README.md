@@ -3,7 +3,7 @@
 :exclamation::exclamation::exclamation: В корне проекта создан файл __project_book-store-backend.postman_collection.json__, где сохранен результат экспорта документации из postman для того чтобы быстро развернуть ее на своем устройстве в postman. Также ниже приводится копия документации в текущем описании.
 
 :exclamation: ***Деплой проекта выполнен с использованием Vercel.***
-Ссылка на адрес приложения для выполнения запросов: https://project-book-store-backend.vercel.app/
+Ссылка на адрес приложения для выполнения запросов: ***https://project-book-store-backend.vercel.app/***
 
 ## Цель:
 ***Создадать API для книжного интернет-магазина Book store с использованием Express.js, Prisma ORM, а также сервиса Supabase с базой данных PostgreSQL***
